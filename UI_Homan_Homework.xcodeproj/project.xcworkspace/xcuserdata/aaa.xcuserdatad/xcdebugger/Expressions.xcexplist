@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FriendsViewController.sevedFriendsArray.getter:FriendsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AllGroupsViewController.tableView(_:cellForRowAt:):AllGroupsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AllGroupsViewController.tableView(_:didSelectRowAt:):AllGroupsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in FriendsViewController.searchBar(_:textDidChange:):FriendsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "friendsItem.surName.lowercased().contains(searchText.lowercased())">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.viewDidLoad():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "singInButton.layer">
+            </PersistentString>
+            <PersistentString
+               value = "singInButton.layer.cornerRadius">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "isItemAlreadyArray(group: selectedGroupe)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
