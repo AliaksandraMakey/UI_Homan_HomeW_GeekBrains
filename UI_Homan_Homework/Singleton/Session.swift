@@ -14,7 +14,7 @@ class Session {
     //делаем конструктор приватным, что запретит создание экземпляра класса
     private init() {}
     
-    var token: String = ""
-    var userId: Int = 0
+    var token: String?
+    var userId: Int?
 
 }
