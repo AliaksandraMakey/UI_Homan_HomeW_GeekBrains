@@ -29,7 +29,8 @@ class WebViewController: UIViewController {
         //вводим адрес авторизации
         var urlComponents = URLComponents(string: "https://oauth.vk.com/authorize")
         // второй вариант записи urlComponents, в этом случае знаения будут не опциональными urlComponents.scheme = "https" urlComponents.host = "oauth.vk.com"  urlComponents.path = "/authorize"
-      
+   
+  
         // вводим остальные параметры
         urlComponents?.queryItems = [
         URLQueryItem(name: "client_id", value: "8228489"),
@@ -93,11 +94,11 @@ extension WebViewController: WKNavigationDelegate {
         Session.instance.userId = userID
         
         
-        print(token)
+        print("TOKEN ---> \(token)")
         print(userID)
         
         performSegue(withIdentifier: "fromWebViewToWebViewTwo", sender: self)
     }
-        
+
     
 }
