@@ -30,6 +30,7 @@
 		006F7DA2283FF8A800D7CAA0 /* GalleryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7DA0283FF8A800D7CAA0 /* GalleryCollectionCell.swift */; };
 		006F7DA3283FF8A800D7CAA0 /* GalleryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 006F7DA1283FF8A800D7CAA0 /* GalleryCollectionCell.xib */; };
 		006F7DA5283FFC4C00D7CAA0 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */; };
+		0081342F2892D0D2001AD236 /* WebViewTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081342E2892D0D2001AD236 /* WebViewTwoController.swift */; };
 		00A68B632865C96000AAD380 /* BigPhotoViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A68B622865C96000AAD380 /* BigPhotoViewXib.swift */; };
 		00A68B652865C97C00AAD380 /* BigPhotoViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A68B642865C97C00AAD380 /* BigPhotoViewXib.xib */; };
 		00AD1C392849384800098EA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AD1C382849384800098EA0 /* Constants.swift */; };
@@ -38,6 +39,7 @@
 		00AD1C49284FDA2800098EA0 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AD1C48284FDA2800098EA0 /* NewsViewController.swift */; };
 		00B51C68285B7BC400B4B23C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B51C67285B7BC400B4B23C /* HomeViewController.swift */; };
 		00B51C752860D6B400B4B23C /* BigPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B51C742860D6B400B4B23C /* BigPhotosViewController.swift */; };
+		00DCE069288FE06000626EAD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCE068288FE06000626EAD /* WebViewController.swift */; };
 		935C5F66D66246523F113007 /* Pods_UI_Homan_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3B4FA11CADCB6BBF0FBC79 /* Pods_UI_Homan_Homework.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,7 @@
 		006F7DA0283FF8A800D7CAA0 /* GalleryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionCell.swift; sourceTree = "<group>"; };
 		006F7DA1283FF8A800D7CAA0 /* GalleryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionCell.xib; sourceTree = "<group>"; };
 		006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		0081342E2892D0D2001AD236 /* WebViewTwoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTwoController.swift; sourceTree = "<group>"; };
 		00A68B622865C96000AAD380 /* BigPhotoViewXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewXib.swift; sourceTree = "<group>"; };
 		00A68B642865C97C00AAD380 /* BigPhotoViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigPhotoViewXib.xib; sourceTree = "<group>"; };
 		00AD1C382849384800098EA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		00AD1C48284FDA2800098EA0 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		00B51C67285B7BC400B4B23C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		00B51C742860D6B400B4B23C /* BigPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotosViewController.swift; sourceTree = "<group>"; };
+		00DCE068288FE06000626EAD /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2407CAF43602877A3428FF9D /* Pods-UI_Homan_Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI_Homan_Homework.release.xcconfig"; path = "Target Support Files/Pods-UI_Homan_Homework/Pods-UI_Homan_Homework.release.xcconfig"; sourceTree = "<group>"; };
 		8B105FBCF1C4D65975404885 /* Pods-UI_Homan_Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI_Homan_Homework.debug.xcconfig"; path = "Target Support Files/Pods-UI_Homan_Homework/Pods-UI_Homan_Homework.debug.xcconfig"; sourceTree = "<group>"; };
 		CD3B4FA11CADCB6BBF0FBC79 /* Pods_UI_Homan_Homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI_Homan_Homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,12 +184,10 @@
 		006F7D8F283E62F400D7CAA0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				00DCE06A288FE0BE00626EAD /* EntranceControllers */,
 				00AD1C4A284FDA3600098EA0 /* NewsViewController */,
 				00AD1C3F284BA6A000098EA0 /* GroupViewController */,
 				00AD1C3C284BA5DD00098EA0 /* FriendsViewController */,
-				0036525328356E7700622E02 /* LoginViewController.swift */,
-				00B51C67285B7BC400B4B23C /* HomeViewController.swift */,
-				006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */,
 				00A68B662865C98800AAD380 /* BigPhotoController+Xib */,
 			);
 			path = Controllers;
@@ -206,6 +208,7 @@
 			children = (
 				00AD1C3D284BA62700098EA0 /* FriendsArray.swift */,
 				006F7D90283E643C00D7CAA0 /* FriendsViewController.swift */,
+				006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */,
 			);
 			path = FriendsViewController;
 			sourceTree = "<group>";
@@ -229,6 +232,18 @@
 			path = NewsViewController;
 			sourceTree = "<group>";
 		};
+		00DCE06A288FE0BE00626EAD /* EntranceControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0036525328356E7700622E02 /* LoginViewController.swift */,
+				00B51C67285B7BC400B4B23C /* HomeViewController.swift */,
+				00DCE068288FE06000626EAD /* WebViewController.swift */,
+				0081342E2892D0D2001AD236 /* WebViewTwoController.swift */,
+			);
+			name = EntranceControllers;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		797FA8E07034749ED5073A2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,7 +258,6 @@
 				8B105FBCF1C4D65975404885 /* Pods-UI_Homan_Homework.debug.xcconfig */,
 				2407CAF43602877A3428FF9D /* Pods-UI_Homan_Homework.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -368,12 +382,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				006F7DA5283FFC4C00D7CAA0 /* GalleryViewController.swift in Sources */,
+				0081342F2892D0D2001AD236 /* WebViewTwoController.swift in Sources */,
 				006F7D94283F8D5200D7CAA0 /* GroupViewController.swift in Sources */,
 				006F7D8D283E5A5F00D7CAA0 /* CustomTableViewCell.swift in Sources */,
 				00AD1C49284FDA2800098EA0 /* NewsViewController.swift in Sources */,
 				00A68B632865C96000AAD380 /* BigPhotoViewXib.swift in Sources */,
 				0036525428356E7700622E02 /* LoginViewController.swift in Sources */,
 				0036525028356E7700622E02 /* AppDelegate.swift in Sources */,
+				00DCE069288FE06000626EAD /* WebViewController.swift in Sources */,
 				006F7D96283F944E00D7CAA0 /* AllGroupsViewController.swift in Sources */,
 				0036525228356E7700622E02 /* SceneDelegate.swift in Sources */,
 				006F7DA2283FF8A800D7CAA0 /* GalleryCollectionCell.swift in Sources */,
@@ -448,6 +464,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development: aliaksandra.makey@gmail.com (2J668V56NF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -508,6 +525,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development: aliaksandra.makey@gmail.com (2J668V56NF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
