@@ -17,6 +17,7 @@
 		00035EBA289A65FB00CB5824 /* GetPhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00035EB9289A65FB00CB5824 /* GetPhotoResponse.swift */; };
 		00035EBC289A663900CB5824 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00035EBB289A663900CB5824 /* PhotoResponse.swift */; };
 		00035EBE289A666700CB5824 /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00035EBD289A666700CB5824 /* PhotoItem.swift */; };
+		0010F07928AD61020058668D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010F07828AD61020058668D /* NetworkManager.swift */; };
 		00272AB228523FC600771C1F /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00272AB028523FC600771C1F /* NewsTableViewCell.swift */; };
 		00272AB328523FC600771C1F /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00272AB128523FC600771C1F /* NewsTableViewCell.xib */; };
 		00272AB528524AC900771C1F /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00272AB428524AC900771C1F /* News.swift */; };
@@ -49,6 +50,9 @@
 		00AD1C49284FDA2800098EA0 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AD1C48284FDA2800098EA0 /* NewsViewController.swift */; };
 		00B51C68285B7BC400B4B23C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B51C67285B7BC400B4B23C /* HomeViewController.swift */; };
 		00B51C752860D6B400B4B23C /* BigPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B51C742860D6B400B4B23C /* BigPhotosViewController.swift */; };
+		00C828FE28B3C0F100165903 /* RealmFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C828FD28B3C0F100165903 /* RealmFriends.swift */; };
+		00C8290028B3E9D500165903 /* RealmGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C828FF28B3E9D500165903 /* RealmGroups.swift */; };
+		00C8290228B3EAEA00165903 /* RealmPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C8290128B3EAEA00165903 /* RealmPhotos.swift */; };
 		00DCE069288FE06000626EAD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCE068288FE06000626EAD /* WebViewController.swift */; };
 		935C5F66D66246523F113007 /* Pods_UI_Homan_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3B4FA11CADCB6BBF0FBC79 /* Pods_UI_Homan_Homework.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +68,7 @@
 		00035EB9289A65FB00CB5824 /* GetPhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhotoResponse.swift; sourceTree = "<group>"; };
 		00035EBB289A663900CB5824 /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		00035EBD289A666700CB5824 /* PhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
+		0010F07828AD61020058668D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		00272AB028523FC600771C1F /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		00272AB128523FC600771C1F /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		00272AB428524AC900771C1F /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 		00AD1C48284FDA2800098EA0 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		00B51C67285B7BC400B4B23C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		00B51C742860D6B400B4B23C /* BigPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotosViewController.swift; sourceTree = "<group>"; };
+		00C828FD28B3C0F100165903 /* RealmFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFriends.swift; sourceTree = "<group>"; };
+		00C828FF28B3E9D500165903 /* RealmGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmGroups.swift; sourceTree = "<group>"; };
+		00C8290128B3EAEA00165903 /* RealmPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPhotos.swift; sourceTree = "<group>"; };
 		00DCE068288FE06000626EAD /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2407CAF43602877A3428FF9D /* Pods-UI_Homan_Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI_Homan_Homework.release.xcconfig"; path = "Target Support Files/Pods-UI_Homan_Homework/Pods-UI_Homan_Homework.release.xcconfig"; sourceTree = "<group>"; };
 		8B105FBCF1C4D65975404885 /* Pods-UI_Homan_Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI_Homan_Homework.debug.xcconfig"; path = "Target Support Files/Pods-UI_Homan_Homework/Pods-UI_Homan_Homework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				00035EA72899348500CB5824 /* URLRequests.swift */,
+				0010F07828AD61020058668D /* NetworkManager.swift */,
 			);
 			path = "URL+JSON";
 			sourceTree = "<group>";
@@ -189,6 +198,7 @@
 				0036524F28356E7700622E02 /* AppDelegate.swift */,
 				0036525128356E7700622E02 /* SceneDelegate.swift */,
 				00AD1C382849384800098EA0 /* Constants.swift */,
+				00C828FC28B3C07200165903 /* Realm */,
 				004874C5286E015500CD59E4 /* Singleton */,
 				006F7D85283E56F600D7CAA0 /* Model */,
 				00035EA92899355200CB5824 /* URL+JSON */,
@@ -292,6 +302,16 @@
 				00AD1C48284FDA2800098EA0 /* NewsViewController.swift */,
 			);
 			path = NewsViewController;
+			sourceTree = "<group>";
+		};
+		00C828FC28B3C07200165903 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				00C828FD28B3C0F100165903 /* RealmFriends.swift */,
+				00C828FF28B3E9D500165903 /* RealmGroups.swift */,
+				00C8290128B3EAEA00165903 /* RealmPhotos.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		00DCE06A288FE0BE00626EAD /* EntranceControllers */ = {
@@ -443,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0010F07928AD61020058668D /* NetworkManager.swift in Sources */,
 				00035EB5289A5ED800CB5824 /* FriendResponse.swift in Sources */,
 				00035EAF2899878100CB5824 /* GroupItem.swift in Sources */,
 				006F7DA5283FFC4C00D7CAA0 /* GalleryViewController.swift in Sources */,
@@ -455,6 +476,7 @@
 				0036525428356E7700622E02 /* LoginViewController.swift in Sources */,
 				0036525028356E7700622E02 /* AppDelegate.swift in Sources */,
 				00035EBC289A663900CB5824 /* PhotoResponse.swift in Sources */,
+				00C8290028B3E9D500165903 /* RealmGroups.swift in Sources */,
 				00DCE069288FE06000626EAD /* WebViewController.swift in Sources */,
 				006F7D96283F944E00D7CAA0 /* AllGroupsViewController.swift in Sources */,
 				0036525228356E7700622E02 /* SceneDelegate.swift in Sources */,
@@ -472,11 +494,13 @@
 				00AD1C41284BA6E200098EA0 /* AllGroupsArray.swift in Sources */,
 				00035EB3289A5E5E00CB5824 /* GetFriendResponse.swift in Sources */,
 				00B51C68285B7BC400B4B23C /* HomeViewController.swift in Sources */,
+				00C8290228B3EAEA00165903 /* RealmPhotos.swift in Sources */,
 				00272AB228523FC600771C1F /* NewsTableViewCell.swift in Sources */,
 				004874C7286E017200CD59E4 /* Session.swift in Sources */,
 				00272ABA28535FBA00771C1F /* LikeAndCommentView.swift in Sources */,
 				006F7D87283E57B900D7CAA0 /* Friend.swift in Sources */,
 				00035EBA289A65FB00CB5824 /* GetPhotoResponse.swift in Sources */,
+				00C828FE28B3C0F100165903 /* RealmFriends.swift in Sources */,
 				00AD1C392849384800098EA0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
