@@ -1,9 +1,3 @@
-//
-//  Constants.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 02.06.22.
-//
 
 import UIKit
 
@@ -11,6 +5,7 @@ import UIKit
 var cellHeight = 80
 
 let space = " "
+
 // сердце закрашено / не закрашено
 var likeEnable = false
 // переменная используется в подсчете лайков

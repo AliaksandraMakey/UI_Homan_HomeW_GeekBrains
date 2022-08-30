@@ -1,7 +1,7 @@
 
 import UIKit
 
-struct Group {
+public struct Group {
     var titleGroup = String()
     var avatarPhoto = UIImage()
 }

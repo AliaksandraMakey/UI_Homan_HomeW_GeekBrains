@@ -40,7 +40,6 @@ class GroupViewController: UIViewController {
     //MARK:  viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fillgroupeArray()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierCustom)
         tableView.delegate = self
         tableView.dataSource = self
@@ -80,9 +79,8 @@ class GroupViewController: UIViewController {
         }
     }
 }
+
 //MARK: Extension
-
-
 extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
       

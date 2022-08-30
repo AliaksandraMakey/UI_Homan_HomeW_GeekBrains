@@ -3,6 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "getFriends():FriendRequest.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in photosGetRequests():URLRequests.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in photosGetRequests(id:):PhotoService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " JSONDecoder().decode( GetPhotoResponse.self, from: json)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GalleryViewController.getPhoto():GalleryViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in groupsGetRequests():URLRequests.swift">
          <PersistentStrings>
             <PersistentString
@@ -10,6 +27,59 @@
             </PersistentString>
             <PersistentString
                value = "String(data: data, encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in photosGetRequests():URLRequests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "size.type == &quot;m&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "photosGetRequests(id:):PhotoService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FriendsViewController.viewDidLoad():FriendsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FriendGateway.getFriends():FriendGateway.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapItemsToFriends(itemFriends: friendsGetRequests())">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in photosGetRequests():PhotoService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " print(data)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AllGroupsViewController.viewDidLoad():AllGroupsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FriendsViewController.fillFriendArray():FriendsArray.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GalleryViewController.viewDidLoad():GalleryViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AllGroupsViewController.fillallGroupeArray():AllGroupsArray.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FriendGeteway.getFriends():FriendGeteway.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "friends != nil">
+            </PersistentString>
+            <PersistentString
+               value = "friends.isEmpty">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

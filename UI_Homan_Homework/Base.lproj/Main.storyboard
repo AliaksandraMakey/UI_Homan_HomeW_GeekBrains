@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2694" y="630"/>
+            <point key="canvasLocation" x="-1602" y="669"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kah-PB-xY3">
@@ -243,7 +243,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XU3-76-IZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261.6822429906542" y="-11.015118790496761"/>
+            <point key="canvasLocation" x="273" y="-11"/>
         </scene>
         <!--News-->
         <scene sceneID="Dhd-FG-vbk">
@@ -281,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lea-Je-CxU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220.09345794392522" y="-11.015118790496761"/>
+            <point key="canvasLocation" x="-606" y="-11"/>
         </scene>
         <!--My friends-->
         <scene sceneID="9ba-WQ-au3">
@@ -657,7 +657,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h2s-q5-ALM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-695.32710280373828" y="-11.015118790496761"/>
+            <point key="canvasLocation" x="-1529" y="-11"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="ZAT-Sq-8Wv">
@@ -688,12 +688,12 @@
                     <navigationItem key="navigationItem" id="MWu-ck-jb6"/>
                     <connections>
                         <outlet property="webView" destination="FK9-oP-8ur" id="nbY-os-Nhq"/>
-                        <segue destination="pge-ic-8JH" kind="presentation" identifier="fromWebViewToWebViewTwo" modalPresentationStyle="fullScreen" id="2Ia-KV-ofW"/>
+                        <segue destination="Afj-hq-NJn" kind="presentation" identifier="fromWebViewToWebViewTwo" modalPresentationStyle="fullScreen" id="STd-eX-I2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDS-XK-0Ll" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3248" y="-11"/>
+            <point key="canvasLocation" x="-3248.130841121495" y="-11.015118790496761"/>
         </scene>
         <!--Web View Two Controller-->
         <scene sceneID="iu3-Xf-qc9">
@@ -704,29 +704,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANl-hh-y3C">
-                                <rect key="frame" x="4" y="138" width="420" height="750"/>
+                                <rect key="frame" x="4" y="94" width="420" height="794"/>
                                 <color key="backgroundColor" red="0.0577180864" green="0.093296243690000003" blue="0.065994973100000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qap-Zi-tNb">
+                                <rect key="frame" x="9" y="99" width="420" height="794"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <segue destination="5ix-nA-RwT" kind="presentation" modalPresentationStyle="fullScreen" id="Sm2-4a-ikd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qcx-VZ-mAT"/>
                         <color key="backgroundColor" red="0.0577180864" green="0.093296243690000003" blue="0.065994973100000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="qap-Zi-tNb" firstAttribute="bottom" secondItem="ANl-hh-y3C" secondAttribute="bottom" constant="5" id="GXT-im-fMv"/>
                             <constraint firstItem="ANl-hh-y3C" firstAttribute="leading" secondItem="Qcx-VZ-mAT" secondAttribute="leading" constant="4" id="Hqm-md-Irw"/>
                             <constraint firstItem="ANl-hh-y3C" firstAttribute="top" secondItem="Qcx-VZ-mAT" secondAttribute="top" constant="50" id="PRY-tL-maT"/>
                             <constraint firstItem="Qcx-VZ-mAT" firstAttribute="trailing" secondItem="ANl-hh-y3C" secondAttribute="trailing" constant="4" id="UiK-k0-bXp"/>
                             <constraint firstItem="Qcx-VZ-mAT" firstAttribute="bottom" secondItem="ANl-hh-y3C" secondAttribute="bottom" constant="4" id="XiL-SH-Jg0"/>
+                            <constraint firstItem="qap-Zi-tNb" firstAttribute="trailing" secondItem="ANl-hh-y3C" secondAttribute="trailing" constant="5" id="klh-i6-x2P"/>
+                            <constraint firstItem="qap-Zi-tNb" firstAttribute="top" secondItem="ANl-hh-y3C" secondAttribute="top" constant="5" id="s0c-dG-hKX"/>
+                            <constraint firstItem="qap-Zi-tNb" firstAttribute="leading" secondItem="ANl-hh-y3C" secondAttribute="leading" constant="5" id="tml-Q2-KUq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IDm-hY-7aT">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Qy0-p5-FJ9">
-                            <connections>
-                                <segue destination="5ix-nA-RwT" kind="presentation" modalPresentationStyle="fullScreen" id="63B-PA-9ES"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Qy0-p5-FJ9"/>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="ANl-hh-y3C" id="0kb-k2-iiJ"/>
@@ -734,25 +742,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79w-xo-Z8b" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1602.3364485981308" y="-11.015118790496761"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="api-5i-Iew">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pge-ic-8JH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bFc-LD-XTj">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Afj-hq-NJn" kind="relationship" relationship="rootViewController" id="s9p-MC-DtL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b20-wB-NmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2502.3364485981306" y="-11.015118790496761"/>
+            <point key="canvasLocation" x="-2452" y="-11"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.87464488640000004" green="0.87464488640000004" blue="0.87464488640000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

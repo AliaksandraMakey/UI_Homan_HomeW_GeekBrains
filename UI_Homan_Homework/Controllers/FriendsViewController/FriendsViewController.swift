@@ -18,18 +18,15 @@ class FriendsViewController: UIViewController {
     
     //добавим массив для Friends, чтобы воспользоваться в расширении
     var friendsArray = [Friend]()
+    let gateway = FriendGateway()
     
     //MARK: searchBar
     var savedFriendsArray = [Friend]()
     
-    // функция, которая будет доставать из масива friendsArray первые буквы алфавита. lowercased() добавим для сортировки маленьких первых букв элемента массива
     func arrayLetter(sourceArray: [Friend]) -> [String] {
         var resultArray = [String]()
-        // нам нужно пробежать по всему массиву friendsArray
         for item in sourceArray {
-            // и достать первую букву имени элемета массива
             let nameLatter = String(item.surName.prefix(1))
-            // в массиве может быть несколько одинковых букв и нам нужно обьединить в один хеддер. добавим проверку
             if !resultArray.contains(nameLatter.lowercased()) {
                 resultArray.append(nameLatter.lowercased())
             }
@@ -37,10 +34,8 @@ class FriendsViewController: UIViewController {
         return resultArray
     }
     
-    // большой массив нам нужно разобрать на маленькие частицы. передаем в функцию значение latter и sourceArray
     func arrayByLetter(sourceArray: [Friend], letter: String) -> [Friend] {
         var resultArray = [Friend]()
-        // аналогично определяем, как в предыдущей функции
         for item in sourceArray {
             let nameLatter = String(item.surName.prefix(1)).lowercased()
             if nameLatter == letter.lowercased() {
@@ -53,6 +48,14 @@ class FriendsViewController: UIViewController {
     // находит обьект Friend по индексу секции и индексу ряда
     func friendBySectionIndexAndRowIndex(section: Int, row: Int) -> Friend {
         return arrayByLetter(sourceArray: friendsArray, letter: arrayLetter(sourceArray: friendsArray)[section])[row]
+    }
+    
+    func fillFriendArray() {
+       
+        var friends = gateway.getFriends()
+   
+        friendsArray += friends
+        friendsArray = friendsArray.sorted(by: { $0.surName < $1.surName })
     }
     
     //MARK: func viewDidLoad
@@ -85,12 +88,11 @@ class FriendsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // иденцификация segue
         if segue.identifier == fromFriendsFrontGallery,
            //           let  sourceVC = segue.source as? FriendsViewController,
            let destinationVC = segue.destination as? GalleryViewController,
            let friend = sender as? Friend {
-            destinationVC.photosArray = friend.photoAlbum
+            destinationVC.friend = friend
         }
     }
 }
@@ -110,24 +112,11 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        
-        
-        
-        
-        
-        
-        
+    
         cell.configure(friend: friendBySectionIndexAndRowIndex(section: indexPath.section, row: indexPath.row), completion: nil)
         return cell
     }
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // sender: friendsArray[indexPath.row] - при нажатии на экземпляр массива будет срабатывыать переход
         performSegue(withIdentifier: fromFriendsFrontGallery, sender: friendBySectionIndexAndRowIndex(section: indexPath.section, row: indexPath.row))

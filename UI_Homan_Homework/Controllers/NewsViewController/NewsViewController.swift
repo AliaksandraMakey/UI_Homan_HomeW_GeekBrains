@@ -20,7 +20,6 @@ class NewsViewController: UIViewController {
         newsTableView.delegate = self
         newsTableView.dataSource = self
     }
-    
 }
 
 //MARK: Extension

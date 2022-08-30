@@ -1,9 +1,3 @@
-//
-//  WebViewController.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 26.07.22.
-//
 
 import UIKit
 import WebKit
@@ -44,7 +38,7 @@ class WebViewController: UIViewController {
         ]
         //далее создаем url из компонентов
         guard let url = urlComponents?.url else {return}
-        print(url)
+     
         // создаем запрос
         let request = URLRequest(url: url)
         // обращаемся к webView с просьбой исполнить запрос. Перед запросом необходимо подписаться на navigationDelegate.

@@ -53,6 +53,7 @@ class AllGroupsViewController: UIViewController {
         searchBarAllGroups.clipsToBounds = true
         searchBarAllGroups.layer.cornerRadius = 16
     }
+    
     //MARK: searchBar
     var savedAllGroupeArray = [Group]()
     
@@ -80,7 +81,7 @@ class AllGroupsViewController: UIViewController {
  
 }
 
-//MARK: Extension
+//MARK: Extension AllGroupsViewController
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
