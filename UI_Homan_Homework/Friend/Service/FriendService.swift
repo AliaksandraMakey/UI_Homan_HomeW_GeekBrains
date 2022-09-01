@@ -1,5 +1,4 @@
 
-
 import Foundation
 import WebKit
 import RealmSwift
@@ -14,11 +13,11 @@ var friendSettings = ["access_token": token,
 
 /// MARK: URLRequest friendsID
 func friendsGetRequests() -> [Friend] {
-   guard let url = NetworkManager.getRequest(url: friendsUrl, settings: friendSettings) else { return [Friend]()}
+    guard let url = NetworkManager.getRequest(url: friendsUrl, settings: friendSettings) else { return [Friend]()}
+    
     let (data, _, _) = URLSession.shared.syncRequest(with: url)
     guard let json = data,
           let friendResponse = try? JSONDecoder().decode( GetFriendResponse.self, from: json)  else { return [Friend]() }
-    
     let items = friendResponse.response.items
     let realmFriends = mapItemsToRealmFriends(itemFriends: items)
     saveFriends(items : realmFriends)
@@ -52,12 +51,11 @@ public func getAllRealmFriends() -> [RealmFriends] {
         return [RealmFriends]()
     }
 }
+
 /// MARK: mapRealmsToFriends
 public func mapRealmsToFriends(realmFriends: [RealmFriends]) -> [Friend]{
     return realmFriends.map {  item in
-        
         var friend = Friend(id: item.id)
-        
         friend.firstName = item.firstName
         friend.surName = item.lastName
         friend.birthDayDate = item.birthDayDate
@@ -65,12 +63,11 @@ public func mapRealmsToFriends(realmFriends: [RealmFriends]) -> [Friend]{
         return friend
     }
 }
+
 /// MARK: mapItemsToRealmFriends
 public func mapItemsToRealmFriends(itemFriends: [FriendItem]) -> [RealmFriends]{
     return itemFriends.map {  item in
-        
         let realmFriends = RealmFriends()
-        
         let url = URL(string: item.photo100)
         let image = try? Data(contentsOf: url!)
         realmFriends.url = item.photo100
@@ -79,20 +76,6 @@ public func mapItemsToRealmFriends(itemFriends: [FriendItem]) -> [RealmFriends]{
         realmFriends.firstName = item.firstName
         realmFriends.lastName = item.lastName
         realmFriends.birthDayDate = item.birthDayDate
-        
         return realmFriends
     }
 }
-
-
-//public func mapItemsToFriends(itemFriends: [FriendItem]) -> [Friend]{
-//    return itemFriends.map {  item in
-//
-//        var friend = Friend()
-//
-//        friend.firstName = item.firstName
-//        friend.surName = item.lastName
-//        friend.birthDayDate = item.birthDayDate
-//        return friend
-//    }
-//}

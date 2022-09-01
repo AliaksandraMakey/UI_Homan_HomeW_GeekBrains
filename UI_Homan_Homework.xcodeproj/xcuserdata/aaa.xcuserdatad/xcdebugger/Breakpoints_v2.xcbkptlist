@@ -126,8 +126,8 @@
             filePath = "UI_Homan_Homework/Controllers/GroupViewController/GroupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "unwindSegueToGroup(segue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "UI_Homan_Homework/Controllers/GroupViewController/GroupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "unwindSegueToGroup(segue:)"
             landmarkType = "7">
             <Locations>
@@ -190,8 +190,8 @@
             filePath = "UI_Homan_Homework/Controllers/GroupViewController/GroupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "unwindSegueToGroup(segue:)"
             landmarkType = "7">
          </BreakpointContent>

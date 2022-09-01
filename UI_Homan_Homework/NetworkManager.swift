@@ -1,9 +1,4 @@
-//
-//  NetworkManager.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 17.08.22.
-//
+
 
 import Foundation
 import WebKit

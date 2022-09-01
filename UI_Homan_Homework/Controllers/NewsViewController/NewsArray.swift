@@ -1,9 +1,3 @@
-//
-//  NewsArray.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 09.06.22.
-//
 
 import UIKit
 

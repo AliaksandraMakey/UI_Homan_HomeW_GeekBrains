@@ -35,6 +35,8 @@
 		00368CFF28BBCA650028C892 /* FriendGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00368CFE28BBCA650028C892 /* FriendGateway.swift */; };
 		00368D0328BCED990028C892 /* GroupGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00368D0228BCED990028C892 /* GroupGateway.swift */; };
 		00368D0A28BE1B970028C892 /* PhotoGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00368D0928BE1B970028C892 /* PhotoGateway.swift */; };
+		00368D0C28BF92B00028C892 /* PhotoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00368D0B28BF92B00028C892 /* PhotoSize.swift */; };
+		00368D1028C0FB950028C892 /* ParamsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00368D0F28C0FB950028C892 /* ParamsGateway.swift */; };
 		004874C7286E017200CD59E4 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004874C6286E017200CD59E4 /* Session.swift */; };
 		006F7D87283E57B900D7CAA0 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7D86283E57B900D7CAA0 /* Friend.swift */; };
 		006F7D89283E57EB00D7CAA0 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7D88283E57EB00D7CAA0 /* Group.swift */; };
@@ -46,7 +48,6 @@
 		006F7DA2283FF8A800D7CAA0 /* GalleryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7DA0283FF8A800D7CAA0 /* GalleryCollectionCell.swift */; };
 		006F7DA3283FF8A800D7CAA0 /* GalleryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 006F7DA1283FF8A800D7CAA0 /* GalleryCollectionCell.xib */; };
 		006F7DA5283FFC4C00D7CAA0 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */; };
-		0081342F2892D0D2001AD236 /* WebViewTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081342E2892D0D2001AD236 /* WebViewTwoController.swift */; };
 		00A68B632865C96000AAD380 /* BigPhotoViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A68B622865C96000AAD380 /* BigPhotoViewXib.swift */; };
 		00A68B652865C97C00AAD380 /* BigPhotoViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A68B642865C97C00AAD380 /* BigPhotoViewXib.xib */; };
 		00AD1C392849384800098EA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AD1C382849384800098EA0 /* Constants.swift */; };
@@ -92,6 +93,8 @@
 		00368CFE28BBCA650028C892 /* FriendGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGateway.swift; sourceTree = "<group>"; };
 		00368D0228BCED990028C892 /* GroupGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGateway.swift; sourceTree = "<group>"; };
 		00368D0928BE1B970028C892 /* PhotoGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGateway.swift; sourceTree = "<group>"; };
+		00368D0B28BF92B00028C892 /* PhotoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSize.swift; sourceTree = "<group>"; };
+		00368D0F28C0FB950028C892 /* ParamsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamsGateway.swift; sourceTree = "<group>"; };
 		004874C6286E017200CD59E4 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		006F7D86283E57B900D7CAA0 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		006F7D88283E57EB00D7CAA0 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -103,7 +106,6 @@
 		006F7DA0283FF8A800D7CAA0 /* GalleryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionCell.swift; sourceTree = "<group>"; };
 		006F7DA1283FF8A800D7CAA0 /* GalleryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionCell.xib; sourceTree = "<group>"; };
 		006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		0081342E2892D0D2001AD236 /* WebViewTwoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTwoController.swift; sourceTree = "<group>"; };
 		00A68B622865C96000AAD380 /* BigPhotoViewXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewXib.swift; sourceTree = "<group>"; };
 		00A68B642865C97C00AAD380 /* BigPhotoViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigPhotoViewXib.xib; sourceTree = "<group>"; };
 		00AD1C382849384800098EA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -196,14 +198,15 @@
 				0036525128356E7700622E02 /* SceneDelegate.swift */,
 				00AD1C382849384800098EA0 /* Constants.swift */,
 				0010F07828AD61020058668D /* NetworkManager.swift */,
+				00368D0F28C0FB950028C892 /* ParamsGateway.swift */,
 				004874C5286E015500CD59E4 /* Singleton */,
 				00035EB0289A444F00CB5824 /* Group */,
 				00368CF928BBC76F0028C892 /* Friend */,
 				00035EB8289A65E200CB5824 /* Photo */,
-				0058311F28510CB4005E8908 /* LaunchScreen */,
 				006F7D8F283E62F400D7CAA0 /* Controllers */,
 				006F7D8A283E59F500D7CAA0 /* Cells */,
 				0036525528356E7700622E02 /* Main.storyboard */,
+				0036525A28356E7800622E02 /* LaunchScreen.storyboard */,
 				0036525828356E7800622E02 /* Assets.xcassets */,
 				0036525D28356E7800622E02 /* Info.plist */,
 			);
@@ -256,6 +259,7 @@
 				00035EB9289A65FB00CB5824 /* GetPhotoResponse.swift */,
 				00035EBB289A663900CB5824 /* PhotoResponse.swift */,
 				00035EBD289A666700CB5824 /* PhotoItem.swift */,
+				00368D0B28BF92B00028C892 /* PhotoSize.swift */,
 				00C8290128B3EAEA00165903 /* RealmPhotos.swift */,
 			);
 			path = Model;
@@ -303,14 +307,6 @@
 				004874C6286E017200CD59E4 /* Session.swift */,
 			);
 			path = Singleton;
-			sourceTree = "<group>";
-		};
-		0058311F28510CB4005E8908 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				0036525A28356E7800622E02 /* LaunchScreen.storyboard */,
-			);
-			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		006F7D8A283E59F500D7CAA0 /* Cells */ = {
@@ -381,7 +377,6 @@
 				0036525328356E7700622E02 /* LoginViewController.swift */,
 				00B51C67285B7BC400B4B23C /* HomeViewController.swift */,
 				00DCE068288FE06000626EAD /* WebViewController.swift */,
-				0081342E2892D0D2001AD236 /* WebViewTwoController.swift */,
 			);
 			name = EntranceControllers;
 			path = ../..;
@@ -529,7 +524,6 @@
 				00035EB5289A5ED800CB5824 /* FriendResponse.swift in Sources */,
 				00035EAF2899878100CB5824 /* GroupItem.swift in Sources */,
 				006F7DA5283FFC4C00D7CAA0 /* GalleryViewController.swift in Sources */,
-				0081342F2892D0D2001AD236 /* WebViewTwoController.swift in Sources */,
 				006F7D94283F8D5200D7CAA0 /* GroupViewController.swift in Sources */,
 				006F7D8D283E5A5F00D7CAA0 /* CustomTableViewCell.swift in Sources */,
 				00AD1C49284FDA2800098EA0 /* NewsViewController.swift in Sources */,
@@ -537,6 +531,7 @@
 				00A68B632865C96000AAD380 /* BigPhotoViewXib.swift in Sources */,
 				0036525428356E7700622E02 /* LoginViewController.swift in Sources */,
 				0036525028356E7700622E02 /* AppDelegate.swift in Sources */,
+				00368D1028C0FB950028C892 /* ParamsGateway.swift in Sources */,
 				00368CF628B919A70028C892 /* GroupService.swift in Sources */,
 				00035EBC289A663900CB5824 /* PhotoResponse.swift in Sources */,
 				00C8290028B3E9D500165903 /* GroupsRealm.swift in Sources */,
@@ -564,6 +559,7 @@
 				004874C7286E017200CD59E4 /* Session.swift in Sources */,
 				00272ABA28535FBA00771C1F /* LikeAndCommentView.swift in Sources */,
 				006F7D87283E57B900D7CAA0 /* Friend.swift in Sources */,
+				00368D0C28BF92B00028C892 /* PhotoSize.swift in Sources */,
 				00035EBA289A65FB00CB5824 /* GetPhotoResponse.swift in Sources */,
 				00C828FE28B3C0F100165903 /* FriendRealm.swift in Sources */,
 				00AD1C392849384800098EA0 /* Constants.swift in Sources */,

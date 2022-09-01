@@ -1,8 +1,8 @@
 
-
 import UIKit
 
 public struct Friend {
+    
     var id = Int()
     var firstName = String()
     var surName = String()

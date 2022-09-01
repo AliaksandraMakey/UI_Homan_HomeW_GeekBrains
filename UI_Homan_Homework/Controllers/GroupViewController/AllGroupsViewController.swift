@@ -1,9 +1,3 @@
-//
-//  AllGroupsViewController.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 26.05.22.
-//
 
 import UIKit
 
@@ -20,7 +14,7 @@ class AllGroupsViewController: UIViewController {
     var selectedGroup: Group?
     
     //MARK: viewDidAppear
-  // добавим метод, чтобы при переходе на контроллер, происходило обновление tableView
+    // добавим метод, чтобы при переходе на контроллер, происходило обновление tableView
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
@@ -30,15 +24,12 @@ class AllGroupsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fillallGroupeArray()
+        fillAllGroupeArray()
         savedAllGroupeArray = allGroupeArray
-        
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierCustom)
-        
         tableView.delegate = self
         tableView.dataSource = self
         searchBarAllGroups.delegate = self
-      
         
         ///  тень и закругления для аватарки
         userAvatarPhoto.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
@@ -56,7 +47,6 @@ class AllGroupsViewController: UIViewController {
     
     //MARK: searchBar
     var savedAllGroupeArray = [Group]()
-    
     func arrayLetter(sourceArray: [Group]) -> [String] {
         var resultArray = [String]()
         for item in sourceArray {
@@ -68,6 +58,7 @@ class AllGroupsViewController: UIViewController {
         return resultArray
     }
     
+    //MARK: arrayByLetter
     func arrayByLetter(sourceArray: [Group], letter: String) -> [Group] {
         var resultArray = [Group]()
         for item in sourceArray {
@@ -78,32 +69,26 @@ class AllGroupsViewController: UIViewController {
         }
         return resultArray.sorted(by: { $0.titleGroup > $1.titleGroup })
     }
- 
 }
 
 //MARK: Extension AllGroupsViewController
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      // возвращаем массив, выведенный построчно ( .count )
+        // возвращаем массив, выведенный построчно ( .count )
         return allGroupeArray.count
     }
-    
-      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-          // аналогично указываем массив
-          cell.configure(group: allGroupeArray[indexPath.row])
-          return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        // аналогично указываем массив
+        cell.configure(group: allGroupeArray[indexPath.row])
+        return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(cellHeight)
     }
-
     // добавим функцию для segue, чтобы при нажатии на элемент коллекции она возвращала нас нас на предыдущий view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedGroup =  allGroupeArray[indexPath.row]
@@ -113,9 +98,7 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
 
 //MARK: Extension UISearchBarDelegate
 extension AllGroupsViewController: UISearchBarDelegate {
-
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-     
         if searchText.isEmpty {
             self.allGroupeArray = self.savedAllGroupeArray
         } else {

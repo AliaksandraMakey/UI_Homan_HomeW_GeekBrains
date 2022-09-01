@@ -15,6 +15,7 @@ struct PhotoItem: Decodable {
         case ownerId = "owner_id"
         case sizes
     }
+    
     public init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: PhotoItemKeys.self)
         id = try value.decode(Int.self, forKey: .id)
@@ -23,9 +24,4 @@ struct PhotoItem: Decodable {
         ownerId = try value.decode(Int.self, forKey: .ownerId)
         sizes = try value.decode([Size].self, forKey: .sizes)
     }
-}
-
-struct Size: Decodable {
-    let url: String
-    let type: String
 }

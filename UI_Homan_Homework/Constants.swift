@@ -19,5 +19,6 @@ let fromAllGroupsToGroup = "fromAllGroupsToGroup"
 
 //  соединяем связь в  sergue fromFriendsFronGallery
 let fromFriendsFrontGallery = "fromFriendsFrontGallery"
-
+let fromHomeVCToWebVC = "FromHomeVCToWebVC"
+let fromWebVCToNewsVC = "FromWebVCToNewsVC"
 let scale = CGFloat(30)

@@ -40,7 +40,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <segue destination="ReY-o0-Fr6" kind="presentation" modalPresentationStyle="fullScreen" id="02u-sv-Ih3"/>
+                                    <segue destination="ReY-o0-Fr6" kind="presentation" identifier="FromHomeVCToWebVC" modalPresentationStyle="fullScreen" id="02u-sv-Ih3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -688,7 +688,7 @@
                     <navigationItem key="navigationItem" id="MWu-ck-jb6"/>
                     <connections>
                         <outlet property="webView" destination="FK9-oP-8ur" id="nbY-os-Nhq"/>
-                        <segue destination="Afj-hq-NJn" kind="presentation" identifier="fromWebViewToWebViewTwo" modalPresentationStyle="fullScreen" id="STd-eX-I2g"/>
+                        <segue destination="5ix-nA-RwT" kind="presentation" identifier="FromWebVCToNewsVC" modalPresentationStyle="fullScreen" id="Zvy-H9-TCV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDS-XK-0Ll" sceneMemberID="firstResponder"/>
@@ -715,9 +715,6 @@
                                 <rect key="frame" x="9" y="99" width="420" height="794"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
-                                <connections>
-                                    <segue destination="5ix-nA-RwT" kind="presentation" modalPresentationStyle="fullScreen" id="Sm2-4a-ikd"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qcx-VZ-mAT"/>
@@ -742,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79w-xo-Z8b" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2452" y="-11"/>
+            <point key="canvasLocation" x="-2498" y="-710"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.87464488640000004" green="0.87464488640000004" blue="0.87464488640000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

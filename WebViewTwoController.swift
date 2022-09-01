@@ -9,16 +9,11 @@ class WebViewTwoController: UIViewController {
     
     let token = Session.instance.token
     let userID =  Session.instance.userId
-    let friendGateway = FriendGateway()
-    let groupeGateway = GroupGateway()
+    let groupGateway = GroupGateway()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        webView.navigationDelegate = self
-        let friends = friendGateway.getFriends()
-        for friend in friends {
-            photosGetRequests(id: friend.id)
-        }
-        groupeGateway.getGroups()
+
        
       
     }

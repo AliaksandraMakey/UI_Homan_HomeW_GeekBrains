@@ -12,8 +12,8 @@ public struct GroupItem: Decodable {
         case id
         case name
         case photo50 = "photo_50"
-
     }
+    
     public init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: GroupeItemKeys.self)
         id = try value.decode(Int.self, forKey: .id)

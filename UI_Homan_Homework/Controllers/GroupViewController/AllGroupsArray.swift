@@ -9,17 +9,15 @@ import UIKit
 
 extension AllGroupsViewController {
     
-    func fillallGroupeArray() {
+    func fillAllGroupeArray() {
         let realmGroups = getAllRealmGroups()
         var groupe: [Group] = realmGroups.map {  item in
-            
             var groupe = Group()
             groupe.titleGroup = item.name
             groupe.avatarPhoto = UIImage(data: item.data!) ?? UIImage()
             return groupe
         }
         allGroupeArray += groupe
-        
         allGroupeArray = allGroupeArray.sorted(by: { $0.titleGroup < $1.titleGroup })
     }
 }
