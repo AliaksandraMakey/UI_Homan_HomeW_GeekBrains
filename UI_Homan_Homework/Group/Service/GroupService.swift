@@ -5,7 +5,7 @@ import RealmSwift
 import Realm
 
 let groupsUrl = "https://api.vk.com/method/groups.get"
-var groupSettings = ["access_token": token,
+var groupSettings = ["access_token": Session.instance.token,
                      "count": "10",
                      "fields": "name, photo_50",
                      "extended": "1",
@@ -51,15 +51,26 @@ public func getAllRealmGroups() -> [RealmGroups] {
     }
 }
 
+/// MARK: mapGroupToRealmGroup
+public func mapGroupToRealmGroup(group: Group) -> RealmGroups {
+        var realmGroup = RealmGroups()
+    realmGroup.name = group.titleGroup
+    realmGroup.id = group.id
+    return realmGroup
+    }
+
+/// MARK: mapRealmsToGroups
 public func mapRealmsToGroups(realmGroups: [RealmGroups]) -> [Group]{
     return realmGroups.map {  item in
         var group = Group()
         group.titleGroup = item.name
+        group.id = item.id
         group.avatarPhoto = UIImage(data: item.data!) ?? UIImage()
         return group
     }
 }
 
+/// MARK: mapItemsToRealmGroups
 public func mapItemsToRealmGroups(itemGroups: [GroupItem]) -> [RealmGroups]{
     return itemGroups.map {  item in
         let realmGroups = RealmGroups()

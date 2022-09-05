@@ -1,5 +1,6 @@
 
 import UIKit
+import RealmSwift
 
 class AllGroupsViewController: UIViewController {
     
@@ -9,12 +10,17 @@ class AllGroupsViewController: UIViewController {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var searchBarAllGroups: UISearchBar!
     
-    // создаем массив с группами
+    private var realmNotification: NotificationToken?
     var allGroupeArray = [Group]()
     var selectedGroup: Group?
     
+    
+    func fillAllGroupeArray() {
+        allGroupeArray += GroupGateway.getGroups()
+        allGroupeArray = allGroupeArray.sorted(by: { $0.titleGroup < $1.titleGroup })
+    }
+    
     //MARK: viewDidAppear
-    // добавим метод, чтобы при переходе на контроллер, происходило обновление tableView
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
@@ -43,20 +49,46 @@ class AllGroupsViewController: UIViewController {
         ///  закругления для searchBar
         searchBarAllGroups.clipsToBounds = true
         searchBarAllGroups.layer.cornerRadius = 16
+        
+        guard let realm = try? Realm() else { return }
+        makeObserverAllGroup(realm: realm)
+    }
+    private func makeObserverAllGroup(realm: Realm) {
+        let objs = realm.objects(RealmGroups.self)
+        realmNotification = objs.observe({ changes in
+            switch changes {
+            case let  .initial(obj):
+                self.allGroupeArray = mapRealmsToGroups(realmGroups: Array(obj))
+                self.tableView.reloadData()
+            case .error(let error): print(error)
+            case let  .update(realmGroups, deletions, insertions, modifications):
+                DispatchQueue.main.async { [self] in
+                    let realmArray = Array(realmGroups)
+                    
+                    self.allGroupeArray = mapRealmsToGroups(realmGroups: realmArray)
+                    
+                    tableView.reloadData()
+                }
+            }
+        })
+    }
+    
+    private func removeGroupFromArrayAndRealm(at indexPath: IndexPath ) {
+        guard let realm = try? Realm() else { return }
+        var group =  allGroupeArray[indexPath.row]
+        try? realm.write{
+            let obj = realm.object(ofType: RealmGroups.self, forPrimaryKey: group.id)
+            if obj != nil {
+                realm.delete(obj!)
+            }
+        }
+        if let index = allGroupeArray.index(where: {$0.id == group.id}) {
+            allGroupeArray.remove(at: index)
+        }
     }
     
     //MARK: searchBar
     var savedAllGroupeArray = [Group]()
-    func arrayLetter(sourceArray: [Group]) -> [String] {
-        var resultArray = [String]()
-        for item in sourceArray {
-            let nameLatter = String(item.titleGroup.prefix(1))
-            if !resultArray.contains(nameLatter.lowercased()) {
-                resultArray.append(nameLatter.lowercased())
-            }
-        }
-        return resultArray
-    }
     
     //MARK: arrayByLetter
     func arrayByLetter(sourceArray: [Group], letter: String) -> [Group] {
@@ -73,26 +105,47 @@ class AllGroupsViewController: UIViewController {
 
 //MARK: Extension AllGroupsViewController
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .none: break
+        case .delete:
+            removeGroupFromArrayAndRealm(at: indexPath)
+            self.tableView.reloadData()
+        case .insert: break
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // возвращаем массив, выведенный построчно ( .count )
         return allGroupeArray.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        // аналогично указываем массив
         cell.configure(group: allGroupeArray[indexPath.row])
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(cellHeight)
     }
-    // добавим функцию для segue, чтобы при нажатии на элемент коллекции она возвращала нас нас на предыдущий view
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedGroup =  allGroupeArray[indexPath.row]
         performSegue(withIdentifier: fromAllGroupsToGroup, sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { [self] (action, IndexPath) in
+            removeGroupFromArrayAndRealm(at: indexPath)
+            self.tableView.reloadData()
+        })
+        deleteAction.backgroundColor = #colorLiteral(red: 0.05872806162, green: 0.1163934693, blue: 0.08317165822, alpha: 1)
+        return [deleteAction]
     }
 }
 
@@ -109,3 +162,4 @@ extension AllGroupsViewController: UISearchBarDelegate {
         self.tableView.reloadData()
     }
 }
+

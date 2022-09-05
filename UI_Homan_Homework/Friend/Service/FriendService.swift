@@ -6,13 +6,13 @@ import Realm
 
 
 let friendsUrl = "https://api.vk.com/method/friends.get"
-var friendSettings = ["access_token": token,
+var friendSettings = ["access_token": Session.instance.token,
                       "count": "10",
                       "fields": "bdate, photo_100",
                       "v": "5.131"]
 
 /// MARK: URLRequest friendsID
-func friendsGetRequests() -> [Friend] {
+public func friendsGetRequests() -> [Friend] {
     guard let url = NetworkManager.getRequest(url: friendsUrl, settings: friendSettings) else { return [Friend]()}
     
     let (data, _, _) = URLSession.shared.syncRequest(with: url)
@@ -40,6 +40,16 @@ private func saveFriends(items: [RealmFriends]) {
         print(error)
     }
 }
+
+/// MARK: mapFriendToRealmFriend
+public func mapFriendToRealmFriend(friend: Friend) -> RealmFriends {
+        var realmFriend = RealmFriends()
+        realmFriend.id = friend.id
+        realmFriend.lastName = friend.surName
+        realmFriend.firstName = friend.firstName
+        realmFriend.birthDayDate = friend.birthDayDate
+        return realmFriend
+    }
 
 /// MARK: getAllRealmFriends
 public func getAllRealmFriends() -> [RealmFriends] {

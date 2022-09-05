@@ -7,7 +7,7 @@ import SwiftUI
 
 
 let getAllPhotoUrl = "https://api.vk.com/method/photos.get"
-var getAllPhotoSettings = ["access_token": token,
+var getAllPhotoSettings = ["access_token": Session.instance.token,
                            "count": "2",
                            "photo_sizes": "1",
                            "album_id": "wall",

@@ -5,9 +5,6 @@ import WebKit
 import RealmSwift
 import Realm
 
-let token = Session.instance.token
-let userID =  Session.instance.userId
-
 class NetworkManager {
     
     static func getRequest(url: String, settings: [String: String?])  -> URL?{

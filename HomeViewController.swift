@@ -1,5 +1,7 @@
 
 import UIKit
+import RealmSwift
+import Realm
 
 class HomeViewController: UIViewController {
     
@@ -39,7 +41,6 @@ class HomeViewController: UIViewController {
                 self?.loadingOneImage.alpha = 0
             }
         }
-        performSegue(withIdentifier: fromHomeVCToWebVC, sender: nil)
     }
     
     override func viewDidLoad() {
@@ -53,6 +54,21 @@ class HomeViewController: UIViewController {
         loadingThreeImage.alpha = 0.2
         loadingFourImage.alpha = 0.2
         loadingAnimateKeyframe(exitAfter: 3, currentCount: 0)
+        do {
+            let realm = try Realm()
+            let lastToken = realm.objects(TokenRealm.self).map{$0}.last
+            if lastToken != nil && lastToken!.expiresInDate > Date(){
+                Session.instance.userId = lastToken?.userId
+                Session.instance.token = lastToken?.token
+                Session.instance.expiresInDate = lastToken?.expiresInDate
+                performSegue(withIdentifier: FromHomeVCToNewsVC, sender: nil)
+                return
+            }
+        } catch {
+            print(error)
+        }
+        
+        performSegue(withIdentifier: fromHomeVCToWebVC, sender: nil)
     }
 }
 

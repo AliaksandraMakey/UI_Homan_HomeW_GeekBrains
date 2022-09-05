@@ -1,5 +1,6 @@
 
 import UIKit
+import RealmSwift
 
 class GalleryViewController: UIViewController {
     @IBOutlet weak var galleryCollectionView: UICollectionView!
@@ -47,9 +48,9 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: cellWightHeight, height: cellWightHeight)
     }
 }
-// функция для открытия картинок галереи (CollectionCell)  во весь экран с кнопкой закрытия. изменения синтаксиса закоментированы. В самом контроллере перед viewDidLoad() необходимо обьявить переменную var fullScreenView: UIView?
+
+//MARK: Extension GalleryViewController
 extension GalleryViewController {
-    // передаем в функцию image
     func showView(image: UIImage) {
         // добавим проверку. Если fullScreenView = nil - инициализируем его
         if fullScreenView == nil {
@@ -101,22 +102,10 @@ extension GalleryViewController {
         closeButton.setImage(UIImage(systemName: "multiply"), for: .normal)
         fullScreenView?.addSubview(closeButton)
     }
-    // добавляем метод отработки нажатия для tapRecognizer
+    
     @objc func onTap() {
         // если fullScreenView используем removeFromSuperview
         guard let fullScreenView = self.fullScreenView else {return}
         fullScreenView.removeFromSuperview()
     }
 }
-
-//extension GalleryViewController {
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "FromPhotosGalleryToBigPhoto",
-//
-//            let selectedPhoto = galleryCollectionView.indexPathsForSelectedItems?.first,
-//           let bigPhotoVC = segue.destination as? BigPhotosViewController {
-//            bigPhotoVC.photoAlbum = photosArray
-//            bigPhotoVC.selectedPhotoIndex = selectedPhoto.item
-//        }
-//    }
-//}

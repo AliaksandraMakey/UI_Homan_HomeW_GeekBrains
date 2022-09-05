@@ -3,7 +3,7 @@ import Foundation
 
 class GroupGateway {
     
-    public func getGroups() -> [Group] {
+    public static func getGroups() -> [Group] {
         let realmGroups = getAllRealmGroups()
         if !realmGroups.isEmpty {
             return mapRealmsToGroups(realmGroups: realmGroups)
