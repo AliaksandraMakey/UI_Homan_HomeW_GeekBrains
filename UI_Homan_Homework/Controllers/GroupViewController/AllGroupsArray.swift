@@ -9,21 +9,16 @@ import UIKit
 
 extension AllGroupsViewController {
     
-    func fillallGroupeArray() {
-        let groupeOne = Group(titleGroup: "Hogwarts School", avatarPhoto: UIImage(named: "Hogwarts")!)
-        allGroupeArray.append(groupeOne)
-        
-        let groupeTwo = Group(titleGroup: "Gryffindor", avatarPhoto: UIImage(named: "1_6")!)
-        allGroupeArray.append(groupeTwo)
-        
-        let groupeThree = Group(titleGroup: "Slytherin", avatarPhoto: UIImage(named: "1_7")!)
-        allGroupeArray.append(groupeThree)
-        
-        let groupeFoure = Group(titleGroup: "Hufflepuff", avatarPhoto: UIImage(named: "1_9")!)
-        allGroupeArray.append(groupeFoure)
-        
-        let groupeFive = Group(titleGroup: "Ravenclaw", avatarPhoto: UIImage(named: "1_8")!)
-        allGroupeArray.append(groupeFive)
+    func fillAllGroupeArray() {
+        let realmGroups = getAllRealmGroups()
+        var groupe: [Group] = realmGroups.map {  item in
+            var groupe = Group()
+            groupe.titleGroup = item.name
+            groupe.avatarPhoto = UIImage(data: item.data!) ?? UIImage()
+            return groupe
+        }
+        allGroupeArray += groupe
+        allGroupeArray = allGroupeArray.sorted(by: { $0.titleGroup < $1.titleGroup })
     }
 }
- 
+

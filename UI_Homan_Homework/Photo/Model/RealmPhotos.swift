@@ -1,15 +1,9 @@
-//
-//  RealmPhotos.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 22.08.22.
-//
 
 import Foundation
 import RealmSwift
 import Realm
 
-class RealmPhotos: Object {
+public class RealmPhotos: Object {
 
     @Persisted(primaryKey: true)
     var id: Int
@@ -22,4 +16,10 @@ class RealmPhotos: Object {
     
     @Persisted
     var ownerId: Int
+    
+    @Persisted
+    var url: String
+    
+    @Persisted
+    var data: Data?
 }

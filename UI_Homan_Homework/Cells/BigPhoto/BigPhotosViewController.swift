@@ -15,7 +15,8 @@ class BigPhotosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//       let realmPhotos = getPhotos()
+//        print(realmPhotos)
                 
         
         

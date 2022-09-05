@@ -9,12 +9,12 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var avatarImageSubview: UIView!
     @IBOutlet weak var oneNameLabel: UILabel!
     @IBOutlet weak var twoNameLabel: UILabel!
-
+    
     var completion: ( () -> Void)?
     
     // передаем вышесвязанным параметрам значение nil для исключения проблем с дальнейшим присвоением новых значений
@@ -27,9 +27,9 @@ class CustomTableViewCell: UITableViewCell {
     // создаем функцию для настройки новых значений  из структуры Friend
     func configure(friend: Friend, completion: ( () -> Void)? ) {
         self.completion = completion
-        avatarImageView.image = friend.avatarPhoto
+            avatarImageView.image = friend.avatarPhoto
         oneNameLabel.text = friend.firstName + space + friend.surName
-        twoNameLabel.text = friend.visitDate
+        twoNameLabel.text = friend.birthDayDate
     }
     
     // аналогично для стурктуры Group
@@ -61,8 +61,7 @@ class CustomTableViewCell: UITableViewCell {
     
     
     @IBAction func pressAvatarButton(_ sender: Any) {
-
-//        let frame = avatarImageView.frame
+        //        let frame = avatarImageView.frame
         
         ///время перехода UIView.animate(withDuration: 0.5)
         UIView.animate(withDuration: 0.05) { [weak self] in
@@ -76,17 +75,14 @@ class CustomTableViewCell: UITableViewCell {
                            initialSpringVelocity: 7,
                            options: [ ]) { [weak self] in
                 
-                
-                guard let self = self else {return}
+                guard let self = self else { return }
                 
                 self.avatarImageView.frame = CGRect (x: self.avatarImageView.frame.origin.x - scale / 2, y: self.avatarImageView.frame.origin.y - scale / 2, width: self.avatarImageView.frame.width + scale, height: self.avatarImageView.frame.height + scale)
             } completion: { isAllSuccessfully in
                 if isAllSuccessfully {
                     self.completion?()
                 }
-                
             }
-
         }
     }
 }

@@ -10,6 +10,7 @@ struct FriendResponse: Decodable {
         case count
         case items
     }
+    
     init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: FriendResponseKeys.self)
         count = try value.decode(Int.self, forKey: .count)

@@ -1,15 +1,8 @@
-//
-//  GroupViewController.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 26.05.22.
-//
 
 import UIKit
 
 class GroupViewController: UIViewController {
-
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userAvatar: UIView!
     @IBOutlet weak var userAvatarPhoto: UIView!
@@ -17,13 +10,12 @@ class GroupViewController: UIViewController {
     
     // создаем массив с группами
     var groupeArray = [Group]()
+    var gateway = GroupGateway()
     
-    //    func fillgroupeArray() {
-        //        let groupeOne = Group(titleGroup: "Hogwarts School", avatarPhoto: UIImage(named: "Hogwarts")!)
-        //        groupeArray.append(groupeOne)
-        //    }
-    
-    
+    func fillgroupArray() {
+        let groups = gateway.getGroups()
+        groupeArray += groups
+    }
     
     //MARK: viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
@@ -31,25 +23,17 @@ class GroupViewController: UIViewController {
         tableView.reloadData()
     }
     
-//    //MARK: viewWillAppear
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        tableView.reloadData()
-//    }
-    
     //MARK:  viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fillgroupeArray()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierCustom)
         tableView.delegate = self
         tableView.dataSource = self
- 
         ///  тень и закругления для аватарки
         userAvatarPhoto.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
         userAvatar.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
         userAvatar.layer.shadowColor =  #colorLiteral(red: 0.3123562634, green: 0.663256526, blue: 0.474018991, alpha: 0.8709902732)
-//        avatarImage.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
+        //        avatarImage.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
         userAvatar.layer.shadowOffset = CGSize(width: -3, height: -3)
         userAvatar.layer.shadowRadius = 10
         userAvatar.layer.shadowOpacity = 1
@@ -57,7 +41,6 @@ class GroupViewController: UIViewController {
         ///  закругления для searchBar
         searchBarMyGroups.clipsToBounds = true
         searchBarMyGroups.layer.cornerRadius = 16
-  
     }
     
     // создадим функцию сортировки групп, отвечающюуся за неповторение в group одинаковых групп из allGroups
@@ -66,42 +49,44 @@ class GroupViewController: UIViewController {
             sourceGroupe.titleGroup == group.titleGroup
         }
     }
-
-
+    
     @IBAction func unwindSegueToGroup(segue: UIStoryboardSegue) {
         // добавим условие для segue
         if segue.identifier == fromAllGroupsToGroup,
            let sourceVC = segue.source as? AllGroupsViewController,
-           let selectedGroupe = sourceVC.selectedGroup
-        {
+           let selectedGroupe = sourceVC.selectedGroup {
             if isItemAlreadyArray(group: selectedGroupe) { return }
             self.groupeArray.append(selectedGroupe)
             tableView.reloadData()
         }
     }
 }
+
 //MARK: Extension
-
-
 extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
-      
         performSegue(withIdentifier: fromAllGroupsToGroup, sender: nil)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      // возвращаем массив, выведенный построчно ( .count )
+        // возвращаем массив, выведенный построчно ( .count )
         return groupeArray.count
     }
-
-      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-          // аналогично указываем массив
-          cell.configure(group: groupeArray[indexPath.row])
-          
-          return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        // аналогично указываем массив
+        cell.configure(group: groupeArray[indexPath.row])
+        return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(cellHeight)
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { [self] (action, IndexPath) in
+            self.groupeArray.remove(at: IndexPath.row)
+            tableView.deleteRows(at: [IndexPath as IndexPath], with: .fade)
+        })
+        deleteAction.backgroundColor = #colorLiteral(red: 0.05872806162, green: 0.1163934693, blue: 0.08317165822, alpha: 1)
+        return [deleteAction]
     }
 }
 

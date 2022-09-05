@@ -1,14 +1,16 @@
 
-
 import UIKit
 
-struct Friend {
+public struct Friend {
+    
+    var id = Int()
     var firstName = String()
     var surName = String()
-    var visitDate = String()
+    var birthDayDate = String()
     var avatarPhoto = UIImage()
     var photoAlbum = [UIImage]()
 }
+
 
 
 
