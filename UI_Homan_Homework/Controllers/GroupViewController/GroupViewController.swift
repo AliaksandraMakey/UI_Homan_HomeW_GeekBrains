@@ -1,6 +1,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseFirestore
 
 class GroupViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class GroupViewController: UIViewController {
     var groupArray = [Group]()
     
     func fillgroupArray() {
+        
         let groups = GroupGateway.getGroups()
         groupArray += groups
     }

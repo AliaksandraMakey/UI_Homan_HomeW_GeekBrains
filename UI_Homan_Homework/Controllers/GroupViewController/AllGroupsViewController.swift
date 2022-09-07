@@ -1,8 +1,11 @@
 
 import UIKit
 import RealmSwift
+import FirebaseFirestore
+
 
 class AllGroupsViewController: UIViewController {
+    let db = Firestore.firestore()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userAvatar: UIView!
@@ -101,7 +104,23 @@ class AllGroupsViewController: UIViewController {
         }
         return resultArray.sorted(by: { $0.titleGroup > $1.titleGroup })
     }
+    
+    func saveGroupToFirestore(id: Int) {
+        getGroupIdFirestore { groupIds in
+            if  !groupIds.contains(id) {
+                var newGroupFirestore = [Int]()
+                newGroupFirestore.append(id)
+                newGroupFirestore += groupIds
+                self.db
+                    .collection("userGroups")
+                    .document(String(Session.instance.userId!))
+                    .setData(["groupIds" : newGroupFirestore])
+            }
+        }
+    }
 }
+
+
 
 //MARK: Extension AllGroupsViewController
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -133,9 +152,10 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(cellHeight)
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedGroup =  allGroupeArray[indexPath.row]
+        let selectedGroup =  allGroupeArray[indexPath.row]
+        saveGroupToFirestore(id: selectedGroup.id)
         performSegue(withIdentifier: fromAllGroupsToGroup, sender: nil)
     }
     

@@ -7,15 +7,19 @@
 
 import UIKit
 import RealmSwift
-@main
+import FirebaseCore
+
+@UIApplicationMain
+
+//@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        var window: UIWindow?
         print("file")
         print(Realm.Configuration.defaultConfiguration.fileURL)
+        FirebaseApp.configure()
         return true
     }
 

@@ -48,6 +48,7 @@
 		006F7DA2283FF8A800D7CAA0 /* GalleryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7DA0283FF8A800D7CAA0 /* GalleryCollectionCell.swift */; };
 		006F7DA3283FF8A800D7CAA0 /* GalleryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 006F7DA1283FF8A800D7CAA0 /* GalleryCollectionCell.xib */; };
 		006F7DA5283FFC4C00D7CAA0 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */; };
+		009662BC28C77F37008C0E39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 009662BB28C77F36008C0E39 /* GoogleService-Info.plist */; };
 		00A68B632865C96000AAD380 /* BigPhotoViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A68B622865C96000AAD380 /* BigPhotoViewXib.swift */; };
 		00A68B652865C97C00AAD380 /* BigPhotoViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A68B642865C97C00AAD380 /* BigPhotoViewXib.xib */; };
 		00AD1C392849384800098EA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AD1C382849384800098EA0 /* Constants.swift */; };
@@ -58,6 +59,7 @@
 		00C8290028B3E9D500165903 /* GroupsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C828FF28B3E9D500165903 /* GroupsRealm.swift */; };
 		00C8290228B3EAEA00165903 /* RealmPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C8290128B3EAEA00165903 /* RealmPhotos.swift */; };
 		00DCE069288FE06000626EAD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCE068288FE06000626EAD /* WebViewController.swift */; };
+		00E44A5B28C7A91A00E81AAC /* GroupsFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E44A5A28C7A91A00E81AAC /* GroupsFirestore.swift */; };
 		935C5F66D66246523F113007 /* Pods_UI_Homan_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3B4FA11CADCB6BBF0FBC79 /* Pods_UI_Homan_Homework.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +107,7 @@
 		006F7DA0283FF8A800D7CAA0 /* GalleryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionCell.swift; sourceTree = "<group>"; };
 		006F7DA1283FF8A800D7CAA0 /* GalleryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionCell.xib; sourceTree = "<group>"; };
 		006F7DA4283FFC4C00D7CAA0 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		009662BB28C77F36008C0E39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00A68B622865C96000AAD380 /* BigPhotoViewXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewXib.swift; sourceTree = "<group>"; };
 		00A68B642865C97C00AAD380 /* BigPhotoViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigPhotoViewXib.xib; sourceTree = "<group>"; };
 		00AD1C382849384800098EA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 		00C828FF28B3E9D500165903 /* GroupsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRealm.swift; sourceTree = "<group>"; };
 		00C8290128B3EAEA00165903 /* RealmPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPhotos.swift; sourceTree = "<group>"; };
 		00DCE068288FE06000626EAD /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		00E44A5A28C7A91A00E81AAC /* GroupsFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsFirestore.swift; sourceTree = "<group>"; };
 		2407CAF43602877A3428FF9D /* Pods-UI_Homan_Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI_Homan_Homework.release.xcconfig"; path = "Target Support Files/Pods-UI_Homan_Homework/Pods-UI_Homan_Homework.release.xcconfig"; sourceTree = "<group>"; };
 		8B105FBCF1C4D65975404885 /* Pods-UI_Homan_Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI_Homan_Homework.debug.xcconfig"; path = "Target Support Files/Pods-UI_Homan_Homework/Pods-UI_Homan_Homework.debug.xcconfig"; sourceTree = "<group>"; };
 		CD3B4FA11CADCB6BBF0FBC79 /* Pods_UI_Homan_Homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI_Homan_Homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +196,7 @@
 		0036524E28356E7700622E02 /* UI_Homan_Homework */ = {
 			isa = PBXGroup;
 			children = (
+				009662BB28C77F36008C0E39 /* GoogleService-Info.plist */,
 				0036524F28356E7700622E02 /* AppDelegate.swift */,
 				0036525128356E7700622E02 /* SceneDelegate.swift */,
 				00AD1C382849384800098EA0 /* Constants.swift */,
@@ -232,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				006F7D88283E57EB00D7CAA0 /* Group.swift */,
+				00E44A5A28C7A91A00E81AAC /* GroupsFirestore.swift */,
 				00035EAA28997FD400CB5824 /* GetGroupResponse.swift */,
 				00035EAC28997FE500CB5824 /* GroupResponse.swift */,
 				00035EAE2899878100CB5824 /* GroupItem.swift */,
@@ -462,6 +468,7 @@
 				00272ABC28535FD600771C1F /* LikeAndCommentView.xib in Resources */,
 				0036525728356E7700622E02 /* Main.storyboard in Resources */,
 				00272AB328523FC600771C1F /* NewsTableViewCell.xib in Resources */,
+				009662BC28C77F37008C0E39 /* GoogleService-Info.plist in Resources */,
 				00A68B652865C97C00AAD380 /* BigPhotoViewXib.xib in Resources */,
 				006F7DA3283FF8A800D7CAA0 /* GalleryCollectionCell.xib in Resources */,
 			);
@@ -551,6 +558,7 @@
 				00B51C68285B7BC400B4B23C /* HomeViewController.swift in Sources */,
 				00368CF428B8F6130028C892 /* FriendService.swift in Sources */,
 				00C8290228B3EAEA00165903 /* RealmPhotos.swift in Sources */,
+				00E44A5B28C7A91A00E81AAC /* GroupsFirestore.swift in Sources */,
 				00272AB228523FC600771C1F /* NewsTableViewCell.swift in Sources */,
 				004874C7286E017200CD59E4 /* Session.swift in Sources */,
 				00272ABA28535FBA00771C1F /* LikeAndCommentView.swift in Sources */,
