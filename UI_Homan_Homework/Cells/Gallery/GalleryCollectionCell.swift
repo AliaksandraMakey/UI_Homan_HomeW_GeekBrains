@@ -30,7 +30,7 @@ class GalleryCollectionCell: UICollectionViewCell {
             button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             UIView.transition(with: likeCounterView, duration: 0.5,
                               options: .transitionFlipFromLeft,
-                              animations: {self.likeCounterView.frame},
+                              animations: { self.likeCounterView.frame },
                               completion: nil)
         }
         counter += 1
