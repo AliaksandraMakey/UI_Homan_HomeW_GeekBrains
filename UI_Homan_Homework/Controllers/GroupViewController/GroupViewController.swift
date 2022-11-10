@@ -15,22 +15,23 @@ class GroupViewController: UIViewController {
     var groupArray = [Group]()
     
     func fillgroupArray() {
-        
-        let groups = GroupGateway.getGroups()
-        groupArray += groups
+        getGroupIdFirestore { groupIds in
+            let groups = GroupGateway.getGroups(ids: groupIds)
+            self.groupArray += groups
+            self.tableView.reloadData()
+        }
     }
     
     //MARK: viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
     }
     
     //MARK:  viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierCustom)
+        fillgroupArray()
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifierCustom")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -58,10 +59,10 @@ class GroupViewController: UIViewController {
     @IBAction func unwindSegueToGroup(segue: UIStoryboardSegue) {
         if segue.identifier == fromAllGroupsToGroup,
            let sourceVC = segue.source as? AllGroupsViewController,
-           let selectedGroupe = sourceVC.selectedGroup {
-            if isItemAlreadyArray(group: selectedGroupe) { return }
-            self.groupArray.append(selectedGroupe)
-            tableView.reloadData()
+           let selectedGroup = sourceVC.selectedGroup {
+            if isItemAlreadyArray(group: selectedGroup) { return }
+            self.groupArray.append(selectedGroup)
+            self.tableView.reloadData()
         }
     }
 }
@@ -77,7 +78,7 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifierCustom", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         cell.configure(group: groupArray[indexPath.row])
         return cell
     }

@@ -11,9 +11,7 @@ var likeEnable = false
 // переменная используется в подсчете лайков
 var counter = 0
 
-let reuseIdentifierCustom = "reuseIdentifierCustom"
 let reuseIdentifierGalleryCollectionCell = "reuseIdentifierGalleryCollectionCell "
-
 // создадим индетикатор для segue от AllGroups к Group (как и в AllGroupsContr)
 let fromAllGroupsToGroup = "fromAllGroupsToGroup"
 

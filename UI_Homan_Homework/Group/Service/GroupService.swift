@@ -51,9 +51,21 @@ public func getAllRealmGroups() -> [RealmGroups] {
     }
 }
 
+/// MARK: getGroups
+public func getAllRealmGroups(ids: [Int]) -> [RealmGroups] {
+    do {
+        let realm = try Realm()
+     let groupsRealm = realm.objects(RealmGroups.self).filter("id IN %@", ids)
+        return groupsRealm.map{$0}
+    } catch {
+        print(error)
+        return [RealmGroups]()
+    }
+}
+
 /// MARK: mapGroupToRealmGroup
 public func mapGroupToRealmGroup(group: Group) -> RealmGroups {
-        var realmGroup = RealmGroups()
+    let realmGroup = RealmGroups()
     realmGroup.name = group.titleGroup
     realmGroup.id = group.id
     return realmGroup

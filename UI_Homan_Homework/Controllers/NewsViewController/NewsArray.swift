@@ -6,19 +6,16 @@ extension NewsViewController {
     //и добавим функцию, чтобы заполнить массив
     func fillNewsArray() {
         //создаем друзей
-        let newsOne = News(firstName: "Argus", surName: "Filch", avatarPhoto: UIImage(named: "Argus_Filch")!, onePhoto: UIImage(named: "1_1")!, twoPhoto: UIImage(named: "1_6")!)
-//        let newsTwo = News(firstName: "Dobby", surName: "", avatarPhoto: UIImage(named: "Dobby")!, onePhoto: UIImage(named: "1_9")!, twoPhoto: UIImage(named: "1_5")!)
-        let newsThree = News(firstName: "Ginevra", surName: "Weasley", avatarPhoto: UIImage(named: "Ginevra_Weasley")!, onePhoto: UIImage(named: "Hogwarts")!, twoPhoto: UIImage(named: "1_4")!)
-        let newsFoure = News(firstName: "Alastor", surName: "Moody", avatarPhoto: UIImage(named: "Alastor_Moody")!, onePhoto: UIImage(named: "1_4")!, twoPhoto: UIImage(named: "1_4")!)
-        let newsFive = News(firstName: "Hermione", surName: "Granger", avatarPhoto: UIImage(named: "Hermione_Granger")!, onePhoto: UIImage(named: "1_3")!, twoPhoto: UIImage(named: "Hogwarts")!)
-        let newsSix = News(firstName: "Lord", surName: "Voldemort",  avatarPhoto: UIImage(named: "Lord_Voldemort")!, onePhoto: UIImage(named: "Hogwarts")!, twoPhoto: UIImage(named: "Hogwarts")!)
-        let newsSeven = News(firstName: "Professor Albus", surName: "Dumbledore", avatarPhoto: UIImage(named: "Prof_Dumbledore")!, onePhoto: UIImage(named: "Hogwarts")!, twoPhoto: UIImage(named: "Hogwarts")!)
-        let newsEight = News(firstName: "Professor Minerva", surName: "McGonagall", avatarPhoto: UIImage(named: "Prof_McGonagall")!, onePhoto: UIImage(named: "Hogwarts")!, twoPhoto: UIImage(named: "Hogwarts")!)
-        let newsNine = News(firstName: "Professor Remus", surName: "Lupin", avatarPhoto: UIImage(named: "Remus_Lupin")!, onePhoto: UIImage(named: "Argus_Filch")!, twoPhoto: UIImage(named: "Argus_Filch")!)
-        let newsTen = News(firstName: "Ron", surName: "Weasley", avatarPhoto: UIImage(named: "Ron_Weasley")!, onePhoto: UIImage(named: "Argus_Filch")!, twoPhoto: UIImage(named: "Argus_Filch")!)
+   
+        let newsThree = News(firstName: "Ginevra", surName: "Weasley", avatarPhoto: UIImage(named: "Ginevra_Weasley")!)
+        let newsFoure = News(firstName: "Alastor", surName: "Moody", avatarPhoto: UIImage(named: "Alastor_Moody")!)
+        let newsFive = News(firstName: "Hermione", surName: "Granger", avatarPhoto: UIImage(named: "Hermione_Granger")!)
+        let newsSix = News(firstName: "Lord", surName: "Voldemort",  avatarPhoto: UIImage(named: "Lord_Voldemort")!)
+        let newsSeven = News(firstName: "Professor Albus", surName: "Dumbledore", avatarPhoto: UIImage(named: "Prof_Dumbledore")!)
+        let newsEight = News(firstName: "Professor Minerva", surName: "McGonagall", avatarPhoto: UIImage(named: "Prof_McGonagall")!)
+        let newsNine = News(firstName: "Professor Remus", surName: "Lupin", avatarPhoto: UIImage(named: "Remus_Lupin")!)
+        let newsTen = News(firstName: "Ron", surName: "Weasley", avatarPhoto: UIImage(named: "Ron_Weasley")!)
 //         добавляем их в массив
-        newsArray.append(newsOne)
-//        newsArray.append(newsTwo)
         newsArray.append(newsThree)
         newsArray.append(newsFoure)
         newsArray.append(newsFive)

@@ -46,7 +46,7 @@ class FriendsViewController: UIViewController {
     }
     
     func fillFriendArray() {
-        var friends = gateway.getFriends()
+        let friends = gateway.getFriends()
         friendsArray += friends
         friendsArray = friendsArray.sorted(by: { $0.surName < $1.surName })
     }
@@ -56,7 +56,7 @@ class FriendsViewController: UIViewController {
         fillFriendArray()
 
         savedFriendsArray = friendsArray
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierCustom)
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifierCustom")
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -101,7 +101,7 @@ class FriendsViewController: UIViewController {
     
     private func removeFriendFromArrayAndRealm(at indexPath: IndexPath ) {
         guard let realm = try? Realm() else { return }
-        var letter = arrayLetter(sourceArray: friendsArray)[indexPath.section]
+        let letter = arrayLetter(sourceArray: friendsArray)[indexPath.section]
         let friend = arrayByLetter(sourceArray: friendsArray, letter: letter)[indexPath.row]
         
         try? realm.write{
@@ -110,7 +110,7 @@ class FriendsViewController: UIViewController {
                 realm.delete(obj!)
             }
         }
-        if let index = friendsArray.index(where: {$0.id == friend.id}) {
+        if let index = friendsArray.firstIndex(where: {$0.id == friend.id}) {
             friendsArray.remove(at: index)
         }
     }
@@ -135,6 +135,8 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             removeFriendFromArrayAndRealm(at: indexPath)
             self.tableView.reloadData()
         case .insert: break
+        @unknown default:
+            print("Error FriendsViewController.editingStyle")
         }
     }
     
@@ -147,7 +149,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifierCustom", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         cell.configure(friend: friendBySectionIndexAndRowIndex(section: indexPath.section, row: indexPath.row), completion: nil)
         return cell
     }

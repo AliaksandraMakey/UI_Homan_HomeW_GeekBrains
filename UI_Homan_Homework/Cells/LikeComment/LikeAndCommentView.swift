@@ -8,6 +8,7 @@
 import UIKit
 
 @IBDesignable class LikeAndCommentView: UIView {
+    
     @IBOutlet weak var watchedCount: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!

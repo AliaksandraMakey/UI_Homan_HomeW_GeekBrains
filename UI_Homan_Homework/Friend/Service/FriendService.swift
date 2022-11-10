@@ -43,7 +43,7 @@ private func saveFriends(items: [RealmFriends]) {
 
 /// MARK: mapFriendToRealmFriend
 public func mapFriendToRealmFriend(friend: Friend) -> RealmFriends {
-        var realmFriend = RealmFriends()
+    let realmFriend = RealmFriends()
         realmFriend.id = friend.id
         realmFriend.lastName = friend.surName
         realmFriend.firstName = friend.firstName

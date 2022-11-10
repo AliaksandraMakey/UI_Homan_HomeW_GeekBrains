@@ -14,7 +14,7 @@ var getAllPhotoSettings = ["access_token": Session.instance.token,
                            "v": "5.131"]
 
 /// MARK: URLRequest photos
-func photosGetRequests(id id: Int) -> [UIImage]{
+func photosGetRequests(id: Int) -> [UIImage]{
     getAllPhotoSettings["owner_id"] = String(id)
     guard let url =  NetworkManager.getRequest(url: getAllPhotoUrl, settings: getAllPhotoSettings) else { return  [UIImage]()}
     let (data, _, _) = URLSession.shared.syncRequest(with: url)

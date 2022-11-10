@@ -35,7 +35,7 @@ class AllGroupsViewController: UIViewController {
         
         fillAllGroupeArray()
         savedAllGroupeArray = allGroupeArray
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierCustom)
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifierCustom")
         tableView.delegate = self
         tableView.dataSource = self
         searchBarAllGroups.delegate = self
@@ -63,7 +63,8 @@ class AllGroupsViewController: UIViewController {
             case let  .initial(obj):
                 self.allGroupeArray = mapRealmsToGroups(realmGroups: Array(obj))
                 self.tableView.reloadData()
-            case .error(let error): print(error)
+            case .error(_):
+                print("error makeObserverAllGroup")
             case let  .update(realmGroups, deletions, insertions, modifications):
                 DispatchQueue.main.async { [self] in
                     let realmArray = Array(realmGroups)
@@ -78,14 +79,14 @@ class AllGroupsViewController: UIViewController {
     
     private func removeGroupFromArrayAndRealm(at indexPath: IndexPath ) {
         guard let realm = try? Realm() else { return }
-        var group =  allGroupeArray[indexPath.row]
+        let group =  allGroupeArray[indexPath.row]
         try? realm.write{
             let obj = realm.object(ofType: RealmGroups.self, forPrimaryKey: group.id)
             if obj != nil {
                 realm.delete(obj!)
             }
         }
-        if let index = allGroupeArray.index(where: {$0.id == group.id}) {
+        if let index = allGroupeArray.firstIndex(where: {$0.id == group.id}) {
             allGroupeArray.remove(at: index)
         }
     }
@@ -132,6 +133,8 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
             removeGroupFromArrayAndRealm(at: indexPath)
             self.tableView.reloadData()
         case .insert: break
+        @unknown default:
+            print("Error AllGroupsViewController.editingStyle")
         }
     }
     
@@ -144,7 +147,7 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCustom, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifierCustom", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         cell.configure(group: allGroupeArray[indexPath.row])
         return cell
     }
@@ -155,6 +158,7 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedGroup =  allGroupeArray[indexPath.row]
+        self.selectedGroup = selectedGroup
         saveGroupToFirestore(id: selectedGroup.id)
         performSegue(withIdentifier: fromAllGroupsToGroup, sender: nil)
     }
