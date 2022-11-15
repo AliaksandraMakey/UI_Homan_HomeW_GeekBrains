@@ -38,7 +38,7 @@ class GroupViewController: UIViewController {
         ///  тень и закругления для аватарки
         userAvatarPhoto.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
         userAvatar.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.shadowColor =  #colorLiteral(red: 0.3123562634, green: 0.663256526, blue: 0.474018991, alpha: 0.8709902732)
+        userAvatar.layer.shadowColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         userAvatar.layer.shadowOffset = CGSize(width: -3, height: -3)
         userAvatar.layer.shadowRadius = 10
         userAvatar.layer.shadowOpacity = 1

@@ -58,7 +58,7 @@ extension GalleryViewController {
             fullScreenView = UIView(frame: self.view.safeAreaLayoutGuide.layoutFrame)
         }
         // задаем цвет. в данном случае прозрачный
-        fullScreenView!.backgroundColor = #colorLiteral(red: 0.3681276441, green: 0.5518844128, blue: 0.426200211, alpha: 1)
+        fullScreenView!.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         // добавляем его поверх self.View
         self.view.addSubview(fullScreenView!)
         //        // добавим tapRecognizer

@@ -54,14 +54,14 @@ class BigPhotoViewXib: UIView {
         self.addGestureRecognizer(recognizer)
         
         // создаем mainImageView
-        mainImageView.backgroundColor = UIColor.systemYellow
+        mainImageView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         // frame = bounds - это значит, что mainImage раскрываетс на весь экран
         mainImageView.frame = self.bounds
         // добавляем mainImageView
         addSubview(mainImageView)
         
         //создаем secondaryImageView
-        secondaryImageView.backgroundColor = UIColor.systemGreen
+        secondaryImageView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         secondaryImageView.frame = self.bounds
         // secondaryImage уезжает на ширину экрана (UIScreen.main.bounds.width)
         secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
@@ -69,7 +69,7 @@ class BigPhotoViewXib: UIView {
         addSubview(secondaryImageView)
         
         // точки внизу - customPageView
-        customPageView.backgroundColor = UIColor.clear
+        customPageView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         customPageView.frame = CGRect(x: 1, y: 1, width: 150, height: 50)
         customPageView.layer.zPosition = 100
         customPageView.numberOfPages = 1

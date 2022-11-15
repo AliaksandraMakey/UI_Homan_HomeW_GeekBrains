@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sS0-kw-T9F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sS0-kw-T9F">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -46,7 +46,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o9e-kf-r44"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wyZ-Hq-Bl7" firstAttribute="bottom" secondItem="uLn-4t-s3u" secondAttribute="bottom" id="3nK-Zs-Trp"/>
                             <constraint firstItem="wyZ-Hq-Bl7" firstAttribute="top" secondItem="uLn-4t-s3u" secondAttribute="top" id="9Ww-ic-9Vp"/>
@@ -260,7 +260,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ej4-tD-EKP"/>
-                        <color key="backgroundColor" red="0.14509806040000001" green="0.24313727020000001" blue="0.1725490093" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ej4-tD-EKP" firstAttribute="bottom" secondItem="L8W-CP-k68" secondAttribute="bottom" id="3aF-6o-ewU"/>
                             <constraint firstItem="Ej4-tD-EKP" firstAttribute="trailing" secondItem="L8W-CP-k68" secondAttribute="trailing" id="EZT-Wb-Vqs"/>
@@ -336,7 +336,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="W5i-hX-1pd">
                                 <rect key="frame" x="0.0" y="171" width="428" height="672"/>
-                                <color key="sectionIndexBackgroundColor" red="0.40848737439999999" green="0.54699337120000002" blue="0.43596724790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8X-6V-TyN">
                                 <rect key="frame" x="0.0" y="91" width="80" height="80"/>
@@ -373,7 +374,7 @@
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gLg-LF-4gj"/>
-                        <color key="backgroundColor" red="0.23627248815213711" green="0.3776436237373737" blue="0.27161527204844627" alpha="0.63710678807947019" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="z8X-6V-TyN" firstAttribute="leading" secondItem="gLg-LF-4gj" secondAttribute="leading" id="5tW-YM-Gne"/>
                             <constraint firstItem="gLg-LF-4gj" firstAttribute="bottom" secondItem="W5i-hX-1pd" secondAttribute="bottom" id="7IU-4m-BGC"/>
@@ -411,7 +412,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LIi-cp-BtI">
                                 <rect key="frame" x="0.0" y="91" width="428" height="752"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="KU5-zG-f7a">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -432,7 +433,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VOa-Z4-ysv"/>
-                        <color key="backgroundColor" red="0.14901961389999999" green="0.23921570180000001" blue="0.1764705926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VOa-Z4-ysv" firstAttribute="trailing" secondItem="LIi-cp-BtI" secondAttribute="trailing" id="0Ao-ty-xVN"/>
                             <constraint firstItem="LIi-cp-BtI" firstAttribute="top" secondItem="VOa-Z4-ysv" secondAttribute="top" id="1eI-cD-uaC"/>
@@ -459,7 +460,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGa-Mq-j43" customClass="BigPhotoViewXib" customModule="UI_Homan_Homework" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="77" width="428" height="430"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="430" id="Rre-Wa-OjF"/>
                                     <constraint firstAttribute="width" constant="428" id="myt-er-hdF"/>
@@ -467,8 +468,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Ld-go-eMK"/>
-                        <color key="backgroundColor" red="0.14901961389999999" green="0.23921570180000001" blue="0.1764705926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="0.14901961389999999" green="0.23921570180000001" blue="0.1764705926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KGa-Mq-j43" firstAttribute="leading" secondItem="5Ld-go-eMK" secondAttribute="leading" id="VYE-zA-kBc"/>
                             <constraint firstItem="KGa-Mq-j43" firstAttribute="top" secondItem="5Ld-go-eMK" secondAttribute="top" constant="30" id="vAg-sI-IGv"/>
@@ -495,6 +496,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bAi-kl-4Ie">
                                 <rect key="frame" x="0.0" y="173" width="428" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                             </tableView>
                             <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="3eK-S7-6PO">
                                 <rect key="frame" x="80" y="120" width="348" height="53"/>
@@ -522,7 +524,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8bG-7p-P0P"/>
-                        <color key="backgroundColor" red="0.14901961389999999" green="0.23921570180000001" blue="0.1764705926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v2j-PD-MkJ" firstAttribute="top" secondItem="8bG-7p-P0P" secondAttribute="top" constant="2" id="1Fq-WU-1dd"/>
                             <constraint firstItem="bAi-kl-4Ie" firstAttribute="top" secondItem="3eK-S7-6PO" secondAttribute="bottom" id="1fw-ni-nX9"/>
@@ -567,6 +569,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BWv-1q-kAt">
                                 <rect key="frame" x="0.0" y="171" width="428" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                                 <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="iKU-Xd-Y19">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="818"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -611,7 +614,7 @@
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QFU-KT-oKC"/>
-                        <color key="backgroundColor" red="0.14901961389999999" green="0.23921570180000001" blue="0.1764705926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GDy-cb-BZU" firstAttribute="leading" secondItem="QFU-KT-oKC" secondAttribute="leading" id="3Wq-wP-dVe"/>
@@ -669,7 +672,7 @@
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FK9-oP-8ur">
                                 <rect key="frame" x="4" y="51" width="420" height="841"/>
-                                <color key="backgroundColor" red="0.0577180864" green="0.093296243690000003" blue="0.065994973100000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -677,7 +680,7 @@
                             </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BkE-wJ-Pry"/>
-                        <color key="backgroundColor" red="0.0577180864" green="0.093296243690000003" blue="0.065994973100000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BkE-wJ-Pry" firstAttribute="trailing" secondItem="FK9-oP-8ur" secondAttribute="trailing" constant="4" id="2oe-rd-YwT"/>
                             <constraint firstItem="BkE-wJ-Pry" firstAttribute="bottom" secondItem="FK9-oP-8ur" secondAttribute="bottom" id="fhN-1T-1O0"/>
@@ -716,6 +719,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

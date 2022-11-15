@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.0949761793, green: 0.1916104257, blue: 0.1280282736, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +62,7 @@ class HomeViewController: UIViewController {
                 Session.instance.token = lastToken?.token
                 Session.instance.expiresInDate = lastToken?.expiresInDate
                 performSegue(withIdentifier: FromHomeVCToNewsVC, sender: nil)
+                print("Token ---> \(String(describing: Session.instance.token))")
                 return
             }
         } catch {
