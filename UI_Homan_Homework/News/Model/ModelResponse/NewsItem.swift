@@ -4,15 +4,14 @@ import Foundation
 
 public struct NewsItem: Decodable {
     let sourceId: Int
-    let postType: String
-    let text: String
-    let attachments: [Attachments]
+    let postType: String?
+    let text: String?
+    let attachments: [Attachments]?
     
     enum NewsItemKeys: String, CodingKey {
         case sourceId =  "source_id"
         case postType = "post_type"
-        case text
-        case attachments
+        case text, attachments
     }
     
     public init(from decoder: Decoder) throws {

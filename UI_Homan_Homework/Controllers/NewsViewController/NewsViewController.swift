@@ -1,16 +1,26 @@
 
 import UIKit
 
-class NewsViewController: UIViewController {
 
+class NewsViewController: UIViewController {
+    
+    
     @IBOutlet weak var newsTableView: UITableView!
-    var newsArray = [News]()
+    var newsArray = [NewsPost]()
+    
+    
+        func fillNewsArray(){
+            DispatchQueue.global().sync {
+                let news = newsGetRequests()
+            self.newsArray += news
+        }
+            
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsGetRequests()
-        //----------------delete
         fillNewsArray()
+    
         newsTableView.register(UINib(nibName: "TextNewsTableCellXib", bundle: nil), forCellReuseIdentifier: "reuseIdentifierCustom")
         newsTableView.delegate = self
         newsTableView.dataSource = self
@@ -20,15 +30,12 @@ class NewsViewController: UIViewController {
 //MARK: Extension NewsViewController
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//----------------delete
         return newsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifierCustom", for: indexPath) as? TextNewsTableCellXib else { return UITableViewCell() }
-//----------------delete
         cell.configure(news: newsArray[indexPath.row])
-//----------------delete
         return cell
     }
     

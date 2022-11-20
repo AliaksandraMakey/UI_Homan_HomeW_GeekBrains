@@ -20,9 +20,8 @@ class OnePhotoTextNewsTableCellXib: UITableViewCell {
         postText = nil
     }
     
-    func configure(news: News) {
-        photoTitle.image = news.avatarPhoto
-        
+    func configure(news: NewsPost) {
+        nameUserOrGroup.text = news.namePersonOrGroupId
     }
     
     override func awakeFromNib() {

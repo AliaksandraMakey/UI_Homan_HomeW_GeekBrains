@@ -393,8 +393,8 @@
                     <connections>
                         <outlet property="searchBar" destination="KFb-ZK-8Ca" id="tb7-pa-HZg"/>
                         <outlet property="tableView" destination="W5i-hX-1pd" id="AvO-N4-gE3"/>
-                        <outlet property="userAvatar" destination="z8X-6V-TyN" id="9lc-Yi-YZO"/>
                         <outlet property="userAvatarPhoto" destination="1dT-me-HPy" id="j2a-1e-FEb"/>
+                        <outlet property="userAvatarSubview" destination="z8X-6V-TyN" id="9lc-Yi-YZO"/>
                         <segue destination="D22-vU-RrD" kind="show" identifier="fromFriendsFrontGallery" id="8q4-mA-b6D"/>
                     </connections>
                 </viewController>

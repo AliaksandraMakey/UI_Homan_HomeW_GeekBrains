@@ -9,7 +9,7 @@ struct Attachments: Decodable {
 }
 
 struct Photo: Decodable {
-    let sizes: [Sizes]
+    let sizes: [Sizes]?
 }
 
 struct Sizes: Decodable {

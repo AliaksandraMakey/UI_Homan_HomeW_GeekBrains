@@ -15,11 +15,14 @@ class GroupViewController: UIViewController {
     var groupArray = [Group]()
     
     func fillgroupArray() {
-        getGroupIdFirestore { groupIds in
-            let groups = GroupGateway.getGroups(ids: groupIds)
-            self.groupArray += groups
-            self.tableView.reloadData()
+//        DispatchQueue.global().async {
+            getGroupIdFirestore { groupIds in
+                let groups = GroupGateway.getGroups(ids: groupIds)
+                self.groupArray += groups
+                self.tableView.reloadData()
+//            }
         }
+        
     }
     
     //MARK: viewDidAppear
@@ -35,14 +38,7 @@ class GroupViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        ///  тень и закругления для аватарки
-        userAvatarPhoto.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.shadowColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        userAvatar.layer.shadowOffset = CGSize(width: -3, height: -3)
-        userAvatar.layer.shadowRadius = 10
-        userAvatar.layer.shadowOpacity = 1
-        userAvatar.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
+        userAvatarCustom(avatarPhoto: userAvatarPhoto, avatarSubview: userAvatar)
         
         ///  закругления для searchBar
         searchBarMyGroups.clipsToBounds = true

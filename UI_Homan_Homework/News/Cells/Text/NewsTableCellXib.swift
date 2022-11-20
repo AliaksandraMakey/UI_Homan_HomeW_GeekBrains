@@ -9,8 +9,8 @@ class TextNewsTableCellXib: UITableViewCell {
     @IBOutlet weak var photoTitleSubview: UIView!
     @IBOutlet weak var photoTitle: UIImageView!
     @IBOutlet weak var commentView: UIView!
-    @IBOutlet weak var nameUserOrGroup: UILabel!
-    @IBOutlet weak var postText: UITextView!
+    @IBOutlet weak var nameUserOrGroup: UILabel?
+    @IBOutlet weak var postText: UILabel?
     
     override func prepareForReuse() {
         photoTitle.image = nil
@@ -20,8 +20,14 @@ class TextNewsTableCellXib: UITableViewCell {
         postText = nil
     }
     
-    func configure(news: News) {
-        photoTitle.image = news.avatarPhoto
+    func configure(news: NewsPost) {
+        if news.namePersonOrGroupId != nil && news.textPost != nil {
+            postText?.text = news.textPost
+            nameUserOrGroup?.text = news.namePersonOrGroupId
+        } else {
+            nameUserOrGroup?.text = " "
+            postText?.text  = " "
+        }
     }
     
     override func awakeFromNib() {

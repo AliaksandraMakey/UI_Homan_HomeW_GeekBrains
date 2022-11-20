@@ -9,8 +9,7 @@ public struct GroupItem: Decodable {
     let photo50: String
     
     enum GroupeItemKeys: String, CodingKey {
-        case id
-        case name
+        case id, name
         case photo50 = "photo_50"
     }
     

@@ -62,8 +62,8 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="faw-jf-SYj">
                         <rect key="frame" x="270" y="79" width="155" height="155"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="155" id="phK-Ds-8La"/>
                             <constraint firstAttribute="height" constant="155" id="rwB-KF-xie"/>
-                            <constraint firstAttribute="width" constant="155" id="yhH-AP-cdG"/>
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMC-tI-nhc">
@@ -75,7 +75,7 @@
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment>
-                                <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <attributes>
                                     <color key="NSColor" red="0.0577180864" green="0.093296243690000003" blue="0.065994973100000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <font key="NSFont" size="14" name="Helvetica"/>
@@ -97,6 +97,7 @@
                     <constraint firstItem="SHT-bK-sQ0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="I2V-Uj-9FD"/>
                     <constraint firstItem="TND-Go-sd8" firstAttribute="top" secondItem="AfW-8c-dfe" secondAttribute="bottom" constant="2" id="Ihf-iJ-rdy"/>
                     <constraint firstAttribute="bottom" secondItem="TND-Go-sd8" secondAttribute="bottom" constant="14" id="LM3-Gc-0GD"/>
+                    <constraint firstAttribute="trailing" secondItem="faw-jf-SYj" secondAttribute="trailing" constant="5" id="Us5-qY-ub4"/>
                     <constraint firstItem="AfW-8c-dfe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="fIo-fd-3c1"/>
                     <constraint firstAttribute="bottom" secondItem="faw-jf-SYj" secondAttribute="bottom" constant="66" id="hfU-13-ALk"/>
                     <constraint firstAttribute="bottom" secondItem="iMC-tI-nhc" secondAttribute="bottom" constant="6" id="ipi-Bu-qqz"/>

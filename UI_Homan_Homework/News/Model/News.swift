@@ -3,15 +3,15 @@ import UIKit
 
 public struct NewsPost {
 
-    var id = Int() // grouts or person
-    var name = String() // grouts or person
+    var idPost = Int() // post from NewsItem
+    var idPersonOrGroup = Int() // id from Profiles or Group
+    var namePersonOrGroupId: String? // grouts or person
     
-    var postType = String()
-    var text = String()
+    var postType = String() // from NewsItem
+    var textPost = String() // from NewsItem
     
     var photoPost = [UIImage]() // just photo
-    var photoTitle = UIImage() // photo100
+    var photoTitlePersonOrGroup = UIImage() // photo100 grouts or person
 }
-
 
 

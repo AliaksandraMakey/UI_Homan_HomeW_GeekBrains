@@ -40,16 +40,9 @@ class AllGroupsViewController: UIViewController {
         tableView.dataSource = self
         searchBarAllGroups.delegate = self
         
-        ///  тень и закругления для аватарки
-        userAvatarPhoto.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.shadowColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        userAvatarCustom(avatarPhoto: userAvatarPhoto, avatarSubview: userAvatar)
         avatarImage.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.shadowOffset = CGSize(width: -3, height: -3)
-        userAvatar.layer.shadowRadius = 10
-        userAvatar.layer.shadowOpacity = 1
-        userAvatar.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        ///  закругления для searchBar
+        ///  searchBar
         searchBarAllGroups.clipsToBounds = true
         searchBarAllGroups.layer.cornerRadius = 16
         
@@ -106,6 +99,7 @@ class AllGroupsViewController: UIViewController {
         return resultArray.sorted(by: { $0.titleGroup > $1.titleGroup })
     }
     
+    //MARK: saveGroupToFirestore
     func saveGroupToFirestore(id: Int) {
         getGroupIdFirestore { groupIds in
             if  !groupIds.contains(id) {
@@ -120,8 +114,6 @@ class AllGroupsViewController: UIViewController {
         }
     }
 }
-
-
 
 //MARK: Extension AllGroupsViewController
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {

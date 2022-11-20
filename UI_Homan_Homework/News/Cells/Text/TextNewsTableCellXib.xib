@@ -60,41 +60,37 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50k-NC-hpN">
-                        <rect key="frame" x="88" y="64" width="320" height="220"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co1-oO-9hR">
+                        <rect key="frame" x="84" y="70" width="328" height="217"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="320" id="Pnh-jc-1pz"/>
-                            <constraint firstAttribute="height" constant="220" id="zc0-7J-9c9"/>
+                            <constraint firstAttribute="height" constant="217" id="79X-bd-F10"/>
                         </constraints>
                         <attributedString key="attributedText">
-                            <fragment>
-                                <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                            <fragment content="Label">
                                 <attributes>
-                                    <color key="NSColor" red="0.0577180864" green="0.093296243690000003" blue="0.065994973100000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <font key="NSFont" size="14" name="Helvetica"/>
                                     <font key="NSOriginalFont" size="14" name="Webdings"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                 <constraints>
-                    <constraint firstItem="50k-NC-hpN" firstAttribute="top" secondItem="I25-86-dCx" secondAttribute="bottom" constant="25" id="8Lw-IH-fYY"/>
+                    <constraint firstAttribute="bottom" secondItem="co1-oO-9hR" secondAttribute="bottom" constant="12" id="G9C-to-VGS"/>
                     <constraint firstAttribute="trailing" secondItem="I25-86-dCx" secondAttribute="trailing" constant="14" id="QV8-bk-LVB"/>
                     <constraint firstItem="Jzn-L7-cw0" firstAttribute="top" secondItem="rBe-TI-QUY" secondAttribute="bottom" constant="10" id="Vsd-zs-bLS"/>
                     <constraint firstAttribute="bottom" secondItem="Jzn-L7-cw0" secondAttribute="bottom" constant="4" id="Vyr-mi-6fS"/>
                     <constraint firstItem="rBe-TI-QUY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Wu2-vN-aOn"/>
-                    <constraint firstAttribute="bottom" secondItem="50k-NC-hpN" secondAttribute="bottom" constant="21" id="aUx-Jz-dEZ"/>
+                    <constraint firstAttribute="trailing" secondItem="co1-oO-9hR" secondAttribute="trailing" constant="6" id="c4x-kc-MYp"/>
                     <constraint firstItem="I25-86-dCx" firstAttribute="leading" secondItem="rBe-TI-QUY" secondAttribute="trailing" constant="9" id="iI2-xC-R5b"/>
-                    <constraint firstItem="50k-NC-hpN" firstAttribute="leading" secondItem="Jzn-L7-cw0" secondAttribute="trailing" constant="44" id="ocB-E3-9K0"/>
+                    <constraint firstItem="co1-oO-9hR" firstAttribute="top" secondItem="I25-86-dCx" secondAttribute="bottom" constant="31" id="mhh-lU-XRZ"/>
+                    <constraint firstItem="co1-oO-9hR" firstAttribute="leading" secondItem="Jzn-L7-cw0" secondAttribute="trailing" constant="40" id="stG-Wq-1WU"/>
                     <constraint firstItem="I25-86-dCx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="tqT-Qf-Fk8"/>
                     <constraint firstItem="Jzn-L7-cw0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="uet-Xf-e3M"/>
                     <constraint firstItem="rBe-TI-QUY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="uki-cM-Dds"/>
-                    <constraint firstAttribute="trailing" secondItem="50k-NC-hpN" secondAttribute="trailing" constant="10" id="woO-nL-Wt3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -103,7 +99,7 @@
                 <outlet property="nameUserOrGroup" destination="I25-86-dCx" id="j8Y-Na-kzK"/>
                 <outlet property="photoTitle" destination="lib-j8-faJ" id="sLb-Xw-Ifg"/>
                 <outlet property="photoTitleSubview" destination="rBe-TI-QUY" id="rjD-7s-n8e"/>
-                <outlet property="postText" destination="50k-NC-hpN" id="f1k-Xq-bsb"/>
+                <outlet property="postText" destination="co1-oO-9hR" id="yNO-Dw-9aV"/>
             </connections>
             <point key="canvasLocation" x="148.09160305343511" y="110.21126760563381"/>
         </tableViewCell>

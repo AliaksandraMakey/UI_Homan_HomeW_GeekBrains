@@ -98,7 +98,7 @@
                         <rect key="frame" x="308" y="174" width="110" height="110"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="110" id="GJ3-eW-4Gc"/>
-                            <constraint firstAttribute="width" constant="110" id="pbF-l4-RTc"/>
+                            <constraint firstAttribute="width" constant="110" id="dTD-v0-eXF"/>
                         </constraints>
                     </imageView>
                 </subviews>
