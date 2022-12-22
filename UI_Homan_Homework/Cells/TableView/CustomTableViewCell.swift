@@ -42,7 +42,7 @@ class CustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // Добавим тень для avatarImage
-        avatarImageSubview.layer.shadowColor =  #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        avatarImageSubview.layer.shadowColor =  #colorLiteral(red: 0.05872806162, green: 0.1163934693, blue: 0.08317165822, alpha: 1)
         avatarImageSubview.layer.shadowOffset = CGSize(width: 2, height: 2)
         avatarImageSubview.layer.shadowRadius = 5
         avatarImageSubview.layer.shadowOpacity = 1

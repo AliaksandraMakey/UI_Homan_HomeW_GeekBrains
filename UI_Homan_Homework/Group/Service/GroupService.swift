@@ -13,6 +13,7 @@ var groupSettings = ["access_token": Session.instance.token,
 
 /// MARK: URLRequest groupsID
 func groupsGetRequests() -> [Group] {
+   
     guard let url = NetworkManager.getRequest(url: groupsUrl, settings: groupSettings) else { return [Group]() }
     let (data, _, _) = URLSession.shared.syncRequest(with: url)
     guard let json = data ,

@@ -1,15 +1,27 @@
 
 import UIKit
 
-class NewsViewController: UIViewController {
 
+class NewsViewController: UIViewController {
+    
+    
     @IBOutlet weak var newsTableView: UITableView!
-    var newsArray = [News]()
+    var newsArray = [NewsPost]()
+    
+    
+        func fillNewsArray(){
+            DispatchQueue.global().sync {
+                let news = newsGetRequests()
+            self.newsArray += news
+        }
+            
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fillNewsArray()
-        newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifierCustom")
+    
+        newsTableView.register(UINib(nibName: "TextNewsTableCellXib", bundle: nil), forCellReuseIdentifier: "reuseIdentifierCustom")
         newsTableView.delegate = self
         newsTableView.dataSource = self
     }
@@ -22,14 +34,14 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifierCustom", for: indexPath) as? NewsTableViewCell else { return UITableViewCell() }
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifierCustom", for: indexPath) as? TextNewsTableCellXib else { return UITableViewCell() }
         cell.configure(news: newsArray[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(cellHeight * 3)
+        return CGFloat(300)
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

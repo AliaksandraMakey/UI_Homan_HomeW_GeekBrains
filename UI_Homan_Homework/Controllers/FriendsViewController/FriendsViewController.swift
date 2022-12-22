@@ -5,7 +5,7 @@ import RealmSwift
 class FriendsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var userAvatar: UIView!
+    @IBOutlet weak var userAvatarSubview: UIView!
     @IBOutlet weak var userAvatarPhoto: UIView!
     
     
@@ -46,9 +46,12 @@ class FriendsViewController: UIViewController {
     }
     
     func fillFriendArray() {
-        let friends = gateway.getFriends()
-        friendsArray += friends
-        friendsArray = friendsArray.sorted(by: { $0.surName < $1.surName })
+//        DispatchQueue.global().async {
+            let friends = self.gateway.getFriends()
+            self.friendsArray += friends
+            self.friendsArray = self.friendsArray.sorted(by: { $0.surName < $1.surName })
+//        }
+        
     }
     
     override func viewDidLoad() {
@@ -61,14 +64,7 @@ class FriendsViewController: UIViewController {
         tableView.dataSource = self
         searchBar.delegate = self
 
-        ///  тень и закругления для аватара
-        userAvatarPhoto.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
-        userAvatar.layer.shadowColor =  #colorLiteral(red: 0.3123562634, green: 0.663256526, blue: 0.474018991, alpha: 0.8709902732)
-        userAvatar.layer.shadowOffset = CGSize(width: -3, height: -3)
-        userAvatar.layer.shadowRadius = 10
-        userAvatar.layer.shadowOpacity = 1
-        userAvatarPhoto.layer.cornerRadius = CGFloat(cellHeight / 2 - 8)
+        userAvatarCustom(avatarPhoto: userAvatarPhoto, avatarSubview: userAvatarSubview)
         
         ///  закругления для searchBar
         searchBar.clipsToBounds = true
