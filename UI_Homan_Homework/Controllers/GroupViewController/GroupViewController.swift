@@ -15,12 +15,13 @@ class GroupViewController: UIViewController {
     var groupArray = [Group]()
     
     func fillgroupArray() {
-//        DispatchQueue.global().async {
-            getGroupIdFirestore { groupIds in
-                let groups = GroupGateway.getGroups(ids: groupIds)
+        getGroupIdFirestore { groupIds in
+            GroupGateway.getGroups(ids: groupIds, complition: { groups in
                 self.groupArray += groups
-                self.tableView.reloadData()
-//            }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
         }
         
     }

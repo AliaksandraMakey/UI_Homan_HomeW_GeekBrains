@@ -9,18 +9,21 @@ class NewsViewController: UIViewController {
     var newsArray = [NewsPost]()
     
     
-        func fillNewsArray(){
-            DispatchQueue.global().sync {
-                let news = newsGetRequests()
-            self.newsArray += news
+    func fillNewsArray(){
+        newsGetRequests{ news in
+            DispatchQueue.main.async {
+                self.newsArray += news
+                self.newsTableView.reloadData()
+            }
         }
-            
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fillNewsArray()
-    
+        
         newsTableView.register(UINib(nibName: "TextNewsTableCellXib", bundle: nil), forCellReuseIdentifier: "reuseIdentifierCustom")
         newsTableView.delegate = self
         newsTableView.dataSource = self

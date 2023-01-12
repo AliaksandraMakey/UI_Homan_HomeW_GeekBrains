@@ -51,7 +51,6 @@ class FriendsViewController: UIViewController {
             self.friendsArray += friends
             self.friendsArray = self.friendsArray.sorted(by: { $0.surName < $1.surName })
 //        }
-        
     }
     
     override func viewDidLoad() {

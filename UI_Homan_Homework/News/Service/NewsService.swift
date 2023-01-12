@@ -19,19 +19,53 @@ let newsSettings = ["access_token": Session.instance.token,
 /// MARK: URLRequest news
 
 
-public func newsGetRequests() -> [NewsPost] {
-    
-
-        guard let url = NetworkManager.getRequest(url: newsUrl, settings: newsSettings) else {return [NewsPost]()}
+public func newsGetRequests(complitionHandler: @escaping ([NewsPost]) -> Void) {
+    DispatchQueue.global().async {
+        guard let url = NetworkManager.getRequest(url: newsUrl, settings: newsSettings) else {return }
         let (data, _, _) = URLSession.shared.syncRequest(with: url)
         
-        guard let json = data,
-              let newsResponse = try? JSONDecoder().decode(GetNewsResponse.self, from: json) else {return [NewsPost]()}
-    guard let items = newsResponse.response.items else {return [NewsPost]()}
-    guard let profiles = newsResponse.response.profiles else {return [NewsPost]()}
-    guard let groups = newsResponse.response.groups else {return [NewsPost]()}
-
-    return mapItemsToNewsPost(itemsNews: items, profilesNews: profiles, groupsNews: groups)
+        var parsedItems = [NewsItem]()
+        var parsedProfiles = [NewsProfiles]()
+        var parsedGroups = [NewsGroups]()
+        
+        let json = (try? JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed)
+                    as? [String: Any]) ?? [:]
+        let response = (json["response"] as? [String: Any]) ?? [:]
+        let itemsJson = response["items"]
+        let profilesJson = response["profiles"]
+        let groupsJson = response["groups"]
+        
+        let itemsData = (try? JSONSerialization.data(withJSONObject: itemsJson as Any, options: .fragmentsAllowed)) ?? Data()
+        let profilesData = (try? JSONSerialization.data(withJSONObject: profilesJson as Any, options: .fragmentsAllowed)) ?? Data()
+        let groupsData = (try? JSONSerialization.data(withJSONObject: groupsJson as Any, options: .fragmentsAllowed)) ?? Data()
+        
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        DispatchQueue.global().async {
+            let model = try? JSONDecoder().decode([NewsItem].self, from: itemsData)
+            parsedItems = model ?? []
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        DispatchQueue.global().async {
+            let model = try? JSONDecoder().decode([NewsProfiles].self, from: profilesData)
+            parsedProfiles = model ?? []
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        DispatchQueue.global().async {
+            let model = try? JSONDecoder().decode([NewsGroups].self, from: groupsData)
+            parsedGroups = model ?? []
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .global()) {
+            let newsPostItems = mapItemsToNewsPost(itemsNews: parsedItems, profilesNews: parsedProfiles, groupsNews: parsedGroups)
+            complitionHandler(newsPostItems)
+        }
+    }
 }
 
 public func mapItemsToNewsPost(itemsNews: [NewsItem], profilesNews: [NewsProfiles], groupsNews: [NewsGroups]) -> [NewsPost]{

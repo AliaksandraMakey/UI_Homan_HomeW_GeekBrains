@@ -5,7 +5,7 @@ import Foundation
 
 public struct NewsProfiles: Decodable {
     let id: Int
-    var firstName: String? = ""
+    var firstName: String?
 //    let lastName: String?
     let photo100: String?
     

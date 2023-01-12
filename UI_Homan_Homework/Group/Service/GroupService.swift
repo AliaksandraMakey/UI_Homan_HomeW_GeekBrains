@@ -12,16 +12,24 @@ var groupSettings = ["access_token": Session.instance.token,
                      "v": "5.131"]
 
 /// MARK: URLRequest groupsID
-func groupsGetRequests() -> [Group] {
-   
-    guard let url = NetworkManager.getRequest(url: groupsUrl, settings: groupSettings) else { return [Group]() }
-    let (data, _, _) = URLSession.shared.syncRequest(with: url)
-    guard let json = data ,
-          let groupResponse = try? JSONDecoder().decode( GetGroupResponse.self, from: json) else { return [Group]() }
-    let items = groupResponse.response.items
-    let realmGroups = mapItemsToRealmGroups(itemGroups: items)
-    saveGroups(items : realmGroups)
-    return mapRealmsToGroups(realmGroups: realmGroups)
+func groupsGetRequests(complition: @escaping ([Group]) -> Void) {
+    guard let url = NetworkManager.getRequest(url: groupsUrl, settings: groupSettings) else { return }
+    URLSession.shared.request(url: url)
+        .map { data -> Future<GetGroupResponse> in
+            let groupResponse = try? JSONDecoder().decode(GetGroupResponse.self, from: data)
+            return Promise(value: groupResponse)
+        }
+        .map { groupResponse -> Future<[RealmGroups]> in
+            let items = groupResponse.response.items
+            let realmGroups = mapItemsToRealmGroups(itemGroups: (items as [GroupItem]))
+            return Promise(value: realmGroups)
+        }.map { realmGroups -> Future<[Group]> in
+            saveGroups(items: realmGroups)
+            let groups = mapRealmsToGroups(realmGroups: realmGroups)
+            return Promise(value: groups)
+        }.observe { result in
+            complition(try! result.get())
+        }
 }
 
 /// MARK: saveGroups
@@ -56,7 +64,7 @@ public func getAllRealmGroups() -> [RealmGroups] {
 public func getAllRealmGroups(ids: [Int]) -> [RealmGroups] {
     do {
         let realm = try Realm()
-     let groupsRealm = realm.objects(RealmGroups.self).filter("id IN %@", ids)
+        let groupsRealm = realm.objects(RealmGroups.self).filter("id IN %@", ids)
         return groupsRealm.map{$0}
     } catch {
         print(error)
@@ -70,7 +78,7 @@ public func mapGroupToRealmGroup(group: Group) -> RealmGroups {
     realmGroup.name = group.titleGroup
     realmGroup.id = group.id
     return realmGroup
-    }
+}
 
 /// MARK: mapRealmsToGroups
 public func mapRealmsToGroups(realmGroups: [RealmGroups]) -> [Group]{

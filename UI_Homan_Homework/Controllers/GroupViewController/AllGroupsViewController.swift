@@ -19,15 +19,20 @@ class AllGroupsViewController: UIViewController {
     
     
     func fillAllGroupeArray() {
-        allGroupeArray += GroupGateway.getGroups()
-        allGroupeArray = allGroupeArray.sorted(by: { $0.titleGroup < $1.titleGroup })
+        GroupGateway.getGroups() { groups in
+            self.allGroupeArray = groups
+            self.allGroupeArray = self.allGroupeArray.sorted(by: { $0.titleGroup < $1.titleGroup })
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
-    //MARK: viewDidAppear
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
+    //    //MARK: viewDidAppear
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //        tableView.reloadData()
+    //    }
     
     //MARK:  viewDidLoad
     override func viewDidLoad() {
@@ -54,7 +59,7 @@ class AllGroupsViewController: UIViewController {
         realmNotification = objs.observe({ changes in
             switch changes {
             case let  .initial(obj):
-                self.allGroupeArray = mapRealmsToGroups(realmGroups: Array(obj))
+                self.allGroupeArray = mapRealmsToGroups(realmGroups: Array(obj)).sorted(by: { $0.titleGroup < $1.titleGroup })
                 self.tableView.reloadData()
             case .error(_):
                 print("error makeObserverAllGroup")
