@@ -5,14 +5,14 @@ public struct FriendItem: Decodable {
     let id: Int
     let firstName: String
     let lastName: String
-    let birthDayDate: String
-    let photo100: String
+    let birthDay: String?
+    let photo100: String?
     
     enum FriendItemKeys: String, CodingKey {
         case id
         case firstName = "first_name"
         case lastName = "last_name"
-        case birthDayDate = "bdate"
+        case birthDay = "bdate"
         case photo100 = "photo_100"
     }
     
@@ -21,7 +21,11 @@ public struct FriendItem: Decodable {
         id = try value.decode(Int.self, forKey: .id)
         firstName = try value.decode(String.self, forKey: .firstName)
         lastName = try value.decode(String.self, forKey: .lastName)
-        birthDayDate = try value.decode(String.self, forKey: .birthDayDate)
+        do {
+            birthDay = try value.decode(String.self, forKey: .birthDay)
+        } catch {
+            birthDay = ""
+        }
         photo100 = try value.decode(String.self, forKey: .photo100)
     }
 }

@@ -18,7 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by. Aliaksandra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1N-ae-1Ny">
-                                <rect key="frame" x="166" y="787" width="202.5" height="35"/>
+                                <rect key="frame" x="100" y="787" width="284" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Nqm-At-cno"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -29,8 +32,8 @@
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="I1N-ae-1Ny" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="739" id="0FD-zO-RXb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I1N-ae-1Ny" secondAttribute="trailing" constant="45.5" id="BeO-rl-V2y"/>
-                            <constraint firstItem="I1N-ae-1Ny" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="KoP-4D-uMc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I1N-ae-1Ny" secondAttribute="trailing" constant="30" id="BeO-rl-V2y"/>
+                            <constraint firstItem="I1N-ae-1Ny" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="KoP-4D-uMc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I1N-ae-1Ny" secondAttribute="bottom" constant="40" id="Nrf-IN-kro"/>
                         </constraints>
                     </view>

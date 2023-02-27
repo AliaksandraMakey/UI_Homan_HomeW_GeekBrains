@@ -26,7 +26,6 @@ class NetworkManager {
 }
 
 extension URLSession {
-    
     func syncRequest(with url: URL) -> (Data?, URLResponse?, Error?) {
         var data: Data?
         var response: URLResponse?

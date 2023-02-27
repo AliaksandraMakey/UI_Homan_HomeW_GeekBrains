@@ -1,17 +1,23 @@
 
 import UIKit
 
-public struct NewsPost {
+public class NewsPost {
 
     var idPost = Int() // post from NewsItem
     var idPersonOrGroup = Int() // id from Profiles or Group
-    var namePersonOrGroupId: String? // grouts or person
+    var namePersonOrGroupId = String() // grouts or person
     
-    var postType = String() // from NewsItem
+//    var postType = String() // from NewsItem
     var textPost = String() // from NewsItem
-    
-    var photoPost = [UIImage]() // just photo
-    var photoTitlePersonOrGroup = UIImage() // photo100 grouts or person
+    var avatarImage = UIImage()
+    var avatarURL = String()
+    var creatorName = String()
+    var photosImage = [UIImage?]() // just photo
+    var photosURL = [String]()
 }
+
+
+
+
 
 

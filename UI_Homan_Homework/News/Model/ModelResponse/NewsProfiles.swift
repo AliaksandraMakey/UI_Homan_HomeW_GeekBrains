@@ -3,24 +3,24 @@
 import Foundation
 
 
-public struct NewsProfiles: Decodable {
+struct NewsProfiles: Decodable {
     let id: Int
-    var firstName: String? = ""
-//    let lastName: String?
-    let photo100: String?
+    var firstName: String?
+    let lastName: String?
+    let avatarURL: String?
     
     enum NewProfilesKeys: String, CodingKey {
         case id
         case firstName = "first_name"
-//        case lastName = "last_name"
-        case photo100 = "photo_100"
+        case lastName = "last_name"
+        case avatarURL = "photo_100"
     }
-    
+
     public init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: NewProfilesKeys.self)
         id = try value.decode(Int.self, forKey: .id)
-        photo100 = try value.decodeIfPresent(String.self, forKey: .photo100)
+        avatarURL = try value.decodeIfPresent(String.self, forKey: .avatarURL)
         firstName = try value.decodeIfPresent(String.self, forKey: .firstName)
-//        lastName = try value.decodeIfPresent(String.self, forKey: .lastName)
+        lastName = try value.decodeIfPresent(String.self, forKey: .lastName)
     }
 }
