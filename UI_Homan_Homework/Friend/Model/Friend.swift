@@ -1,7 +1,8 @@
 
 import UIKit
 
-public struct Friend {
+
+public class Friend {
     
     var id = Int()
     var firstName = String()
@@ -9,6 +10,13 @@ public struct Friend {
     var birthDayDate = String()
     var avatarPhoto = UIImage()
     var photoAlbum = [UIImage]()
+    
+    init(id: Int) {
+        self.id = id
+    }
+    
+    init() {
+    }
 }
 
 

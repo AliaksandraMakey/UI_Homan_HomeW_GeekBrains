@@ -3,6 +3,7 @@ import Foundation
 import RealmSwift
 import Realm
 
+//MARK: RealmPhotos
 public class RealmPhotos: Object {
 
     @Persisted(primaryKey: true)

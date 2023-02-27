@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="48" width="150" height="102"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fmk-gx-bKM">
-                                <rect key="frame" x="5" y="5" width="140" height="92"/>
+                                <rect key="frame" x="2" y="2" width="146" height="98"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uGt-BE-mPY">
                                 <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
@@ -79,10 +79,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99917140151515149" green="0.99917140151515149" blue="0.99917140151515149" alpha="0.69347578642384111" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="fmk-gx-bKM" firstAttribute="top" secondItem="mSl-kg-rR8" secondAttribute="top" constant="5" id="8Lz-bC-g09"/>
-                            <constraint firstAttribute="trailing" secondItem="fmk-gx-bKM" secondAttribute="trailing" constant="5" id="D6R-QJ-jwe"/>
-                            <constraint firstItem="fmk-gx-bKM" firstAttribute="leading" secondItem="mSl-kg-rR8" secondAttribute="leading" constant="5" id="p1Q-6x-sxY"/>
-                            <constraint firstAttribute="bottom" secondItem="fmk-gx-bKM" secondAttribute="bottom" constant="5" id="zkR-rr-G5Y"/>
+                            <constraint firstItem="fmk-gx-bKM" firstAttribute="top" secondItem="mSl-kg-rR8" secondAttribute="top" constant="2" id="8Lz-bC-g09"/>
+                            <constraint firstAttribute="trailing" secondItem="fmk-gx-bKM" secondAttribute="trailing" constant="2" id="D6R-QJ-jwe"/>
+                            <constraint firstItem="fmk-gx-bKM" firstAttribute="leading" secondItem="mSl-kg-rR8" secondAttribute="leading" constant="2" id="p1Q-6x-sxY"/>
+                            <constraint firstAttribute="bottom" secondItem="fmk-gx-bKM" secondAttribute="bottom" constant="2" id="zkR-rr-G5Y"/>
                         </constraints>
                     </view>
                 </subviews>

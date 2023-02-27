@@ -13,7 +13,7 @@ var getAllPhotoSettings = ["access_token": Session.instance.token,
                            "album_id": "wall",
                            "v": "5.131"]
 
-/// MARK: URLRequest photos
+/// URLRequest photos
 func photosGetRequests(id: Int) -> [UIImage]{
     getAllPhotoSettings["owner_id"] = String(id)
     guard let url =  NetworkManager.getRequest(url: getAllPhotoUrl, settings: getAllPhotoSettings) else { return  [UIImage]()}
@@ -26,13 +26,13 @@ func photosGetRequests(id: Int) -> [UIImage]{
     return mapRealmsToPhotos(realmPhotos: realmPhotos)
 }
 
-/// MARK: savePhotos
+/// savePhotos
 private func savePhotos(items: [RealmPhotos]) {
     do {
         let realm = try Realm()
         try realm.write {
             items.forEach { item in
-                let obj = try? realm.object(ofType: RealmPhotos.self, forPrimaryKey: item.id)
+                let obj = realm.object(ofType: RealmPhotos.self, forPrimaryKey: item.id)
                 if obj == nil {
                     realm.add(item)
                 }
@@ -43,7 +43,7 @@ private func savePhotos(items: [RealmPhotos]) {
     }
 }
 
-/// MARK: getPhotosByOwnerId
+/// getPhotosByOwnerId
 public func getPhotosByOwnerId(id: Int) -> [RealmPhotos] {
     do {
         let realm = try Realm()
@@ -67,10 +67,15 @@ func mapItemsToRealmPhotos(itemPhoto: [PhotoItem]) -> [RealmPhotos] {
         let realmPhoto = RealmPhotos()
         for size in item.sizes {
             if size.type == "x" {
+//                let image = fromStringToData(stringURL: (size.url))
+                
+                
                 let url = URL(string: size.url)
                 let image = try? Data(contentsOf: url!)
-                realmPhoto.url = size.url
                 realmPhoto.data = image
+                
+                
+                realmPhoto.url = size.url
             }
         }
         realmPhoto.id = item.id

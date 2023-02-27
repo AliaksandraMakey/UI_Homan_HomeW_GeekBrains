@@ -12,7 +12,8 @@
             <connections>
                 <outlet property="commentButton" destination="kdT-NC-243" id="SCD-Os-waH"/>
                 <outlet property="likeButton" destination="gPf-72-HWG" id="6Qq-KO-Ry9"/>
-                <outlet property="likeCounterLabel" destination="IAw-DQ-Dnt" id="sfD-Ws-g2o"/>
+                <outlet property="likeCounter" destination="IAw-DQ-Dnt" id="sfD-Ws-g2o"/>
+                <outlet property="likeCounterView" destination="K9B-uH-V9A" id="y61-GT-Nw0"/>
                 <outlet property="shareButton" destination="UXA-fA-xZb" id="6a4-94-BAj"/>
                 <outlet property="watchedCount" destination="NM4-mn-Tig" id="yHd-6E-AzG"/>
                 <outlet property="watchedCounterLabel" destination="kLe-qh-ItY" id="UbX-7t-77p"/>
@@ -26,20 +27,29 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFw-qW-X78">
                     <rect key="frame" x="0.0" y="48" width="38" height="187"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPf-72-HWG">
-                            <rect key="frame" x="4" y="0.0" width="30" height="30"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9B-uH-V9A">
+                            <rect key="frame" x="0.0" y="0.0" width="38" height="30"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPf-72-HWG">
+                                    <rect key="frame" x="4" y="0.0" width="30" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="">
+                                        <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="pressHeartButton:" destination="-1" eventType="touchUpInside" id="B67-tC-eI0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="QSF-8t-KR3"/>
-                                <constraint firstAttribute="height" constant="30" id="cYg-Cp-VGS"/>
+                                <constraint firstItem="gPf-72-HWG" firstAttribute="top" secondItem="K9B-uH-V9A" secondAttribute="top" id="9ir-rq-MPw"/>
+                                <constraint firstItem="gPf-72-HWG" firstAttribute="leading" secondItem="K9B-uH-V9A" secondAttribute="leading" constant="4" id="Sc6-6q-SUM"/>
+                                <constraint firstAttribute="trailing" secondItem="gPf-72-HWG" secondAttribute="trailing" constant="4" id="a2x-fu-7xM"/>
+                                <constraint firstAttribute="height" constant="30" id="pWg-g7-Bb5"/>
+                                <constraint firstAttribute="bottom" secondItem="gPf-72-HWG" secondAttribute="bottom" id="sgg-bP-f4C"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="">
-                                <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </buttonConfiguration>
-                            <connections>
-                                <action selector="pressHeartButton:" destination="-1" eventType="touchUpInside" id="B67-tC-eI0"/>
-                            </connections>
-                        </button>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAw-DQ-Dnt">
                             <rect key="frame" x="4" y="30" width="30" height="30"/>
                             <constraints>
@@ -96,24 +106,24 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="gPf-72-HWG" firstAttribute="top" secondItem="MFw-qW-X78" secondAttribute="top" id="1x4-ix-sz6"/>
                         <constraint firstAttribute="trailing" secondItem="IAw-DQ-Dnt" secondAttribute="trailing" constant="4" id="2cE-gz-kAh"/>
                         <constraint firstItem="kLe-qh-ItY" firstAttribute="leading" secondItem="MFw-qW-X78" secondAttribute="leading" constant="4" id="2oz-oB-iQj"/>
                         <constraint firstItem="UXA-fA-xZb" firstAttribute="leading" secondItem="MFw-qW-X78" secondAttribute="leading" constant="3" id="3fI-yj-PRc"/>
+                        <constraint firstItem="IAw-DQ-Dnt" firstAttribute="top" secondItem="K9B-uH-V9A" secondAttribute="bottom" id="55b-Yu-2gZ"/>
                         <constraint firstAttribute="trailing" secondItem="kLe-qh-ItY" secondAttribute="trailing" constant="4" id="7Fd-gP-7Ei"/>
                         <constraint firstItem="kLe-qh-ItY" firstAttribute="top" secondItem="kdT-NC-243" secondAttribute="bottom" id="7Mf-AL-Bwb"/>
+                        <constraint firstAttribute="trailing" secondItem="K9B-uH-V9A" secondAttribute="trailing" id="8jd-3D-ymb"/>
                         <constraint firstItem="IAw-DQ-Dnt" firstAttribute="leading" secondItem="MFw-qW-X78" secondAttribute="leading" constant="4" id="Dvv-v0-5S2"/>
                         <constraint firstItem="NM4-mn-Tig" firstAttribute="leading" secondItem="MFw-qW-X78" secondAttribute="leading" constant="4" id="EEx-CG-dQ7"/>
                         <constraint firstAttribute="width" constant="38" id="Ezd-H2-rv5"/>
                         <constraint firstItem="UXA-fA-xZb" firstAttribute="top" secondItem="NM4-mn-Tig" secondAttribute="bottom" id="QTR-ad-AsS"/>
+                        <constraint firstItem="K9B-uH-V9A" firstAttribute="leading" secondItem="MFw-qW-X78" secondAttribute="leading" id="UqN-wI-dHT"/>
                         <constraint firstAttribute="trailing" secondItem="UXA-fA-xZb" secondAttribute="trailing" constant="5" id="YKV-IJ-XbK"/>
-                        <constraint firstItem="gPf-72-HWG" firstAttribute="leading" secondItem="MFw-qW-X78" secondAttribute="leading" constant="4" id="dZ9-aE-nHC"/>
+                        <constraint firstItem="K9B-uH-V9A" firstAttribute="top" secondItem="MFw-qW-X78" secondAttribute="top" id="b1J-Dk-vaN"/>
                         <constraint firstItem="kdT-NC-243" firstAttribute="top" secondItem="IAw-DQ-Dnt" secondAttribute="bottom" id="f8h-e5-8F4"/>
                         <constraint firstAttribute="trailing" secondItem="NM4-mn-Tig" secondAttribute="trailing" constant="4" id="jhc-h6-H20"/>
-                        <constraint firstItem="IAw-DQ-Dnt" firstAttribute="top" secondItem="gPf-72-HWG" secondAttribute="bottom" id="ofr-BC-g66"/>
                         <constraint firstItem="kdT-NC-243" firstAttribute="leading" secondItem="MFw-qW-X78" secondAttribute="leading" constant="5" id="pv7-HF-gq8"/>
                         <constraint firstAttribute="bottom" secondItem="UXA-fA-xZb" secondAttribute="bottom" constant="7" id="qr5-Au-EWj"/>
-                        <constraint firstAttribute="trailing" secondItem="gPf-72-HWG" secondAttribute="trailing" constant="4" id="rtP-Nj-ZpS"/>
                         <constraint firstItem="NM4-mn-Tig" firstAttribute="top" secondItem="kLe-qh-ItY" secondAttribute="bottom" id="wa6-TU-N9o"/>
                         <constraint firstAttribute="trailing" secondItem="kdT-NC-243" secondAttribute="trailing" constant="3" id="yuI-my-0rj"/>
                     </constraints>

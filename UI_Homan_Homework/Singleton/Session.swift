@@ -1,6 +1,7 @@
 
 import UIKit
 
+//MARK: user
 class Session {
     
     static let instance = Session()

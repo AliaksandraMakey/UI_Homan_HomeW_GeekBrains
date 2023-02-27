@@ -11,8 +11,8 @@ var groupSettings = ["access_token": Session.instance.token,
                      "extended": "1",
                      "v": "5.131"]
 
-/// MARK: URLRequest groupsID
-func groupsGetRequests(complition: @escaping ([Group]) -> Void) {
+//MARK: URLRequest groupsID
+func groupsGetRequests(completion: @escaping ([Group]) -> Void) {
     guard let url = NetworkManager.getRequest(url: groupsUrl, settings: groupSettings) else { return }
     URLSession.shared.request(url: url)
         .map { data -> Future<GetGroupResponse> in
@@ -24,32 +24,15 @@ func groupsGetRequests(complition: @escaping ([Group]) -> Void) {
             let realmGroups = mapItemsToRealmGroups(itemGroups: (items as [GroupItem]))
             return Promise(value: realmGroups)
         }.map { realmGroups -> Future<[Group]> in
-            saveGroups(items: realmGroups)
+                saveObjectToRealm(items: realmGroups, objRealm: RealmGroups.self, fieldID: \RealmGroups.id)
             let groups = mapRealmsToGroups(realmGroups: realmGroups)
             return Promise(value: groups)
         }.observe { result in
-            complition(try! result.get())
+            completion(try! result.get())
         }
 }
-
-/// MARK: saveGroups
-private func saveGroups(items: [RealmGroups]) {
-    do {
-        let realm = try Realm()
-        try realm.write {
-            items.forEach { item in
-                let obj = try? realm.object(ofType: RealmGroups.self, forPrimaryKey: item.id)
-                if obj == nil {
-                    realm.add(item)
-                }
-            }
-        }
-    } catch {
-        print(error)
-    }
-}
-
-/// MARK: getGroups
+//TODO: Change this metod universal
+/// getAllRealmGroups
 public func getAllRealmGroups() -> [RealmGroups] {
     do {
         let realm = try Realm()
@@ -59,8 +42,7 @@ public func getAllRealmGroups() -> [RealmGroups] {
         return [RealmGroups]()
     }
 }
-
-/// MARK: getGroups
+/// getAllRealmGroupsByID
 public func getAllRealmGroups(ids: [Int]) -> [RealmGroups] {
     do {
         let realm = try Realm()
@@ -71,38 +53,66 @@ public func getAllRealmGroups(ids: [Int]) -> [RealmGroups] {
         return [RealmGroups]()
     }
 }
-
-/// MARK: mapGroupToRealmGroup
-public func mapGroupToRealmGroup(group: Group) -> RealmGroups {
-    let realmGroup = RealmGroups()
-    realmGroup.name = group.titleGroup
-    realmGroup.id = group.id
-    return realmGroup
-}
-
-/// MARK: mapRealmsToGroups
+///mapRealmsToGroups
 public func mapRealmsToGroups(realmGroups: [RealmGroups]) -> [Group]{
     return realmGroups.map {  item in
-        var group = Group()
+        let group = Group()
         group.titleGroup = item.name
         group.id = item.id
         group.avatarPhoto = UIImage(data: item.data!) ?? UIImage()
         return group
     }
 }
-
-/// MARK: mapItemsToRealmGroups
+//TODO: Change this metod universal
+/// mapItemsToRealmGroups
 public func mapItemsToRealmGroups(itemGroups: [GroupItem]) -> [RealmGroups]{
     return itemGroups.map {  item in
         let realmGroups = RealmGroups()
+        
+        //        realmGroups.data = fromStringToData(stringURL: item.photo50)
         let url = URL(string: item.photo50)
         let image = try? Data(contentsOf: url!)
-        realmGroups.name = item.name
-        realmGroups.url = item.photo50
         realmGroups.data = image
+        
+        realmGroups.url = item.photo50
+        realmGroups.name = item.name
         realmGroups.id = item.id
         return realmGroups
     }
 }
 
+/////mapGroupToRealmGroup
+//public func mapGroupToRealmGroup(group: Group) -> RealmGroups {
+//    let realmGroup = RealmGroups()
+//    realmGroup.name = group.titleGroup
+//    realmGroup.id = group.id
+//    return realmGroup
+//}
 
+
+
+
+////TODO: Change this metod universal
+///// getAllRealmGroups
+//public func getAllRealmGroups() -> [RealmGroups] {
+//    do {
+//        let realm = try Realm()
+//        return realm.objects(RealmGroups.self).map{$0}
+//    } catch {
+//        print(error)
+//        return [RealmGroups]()
+//    }
+//}
+//
+//
+////TODO: Change this metod universal
+///// getAllRealmFriends
+//public func getAllRealmFriends() -> [RealmFriends] {
+//    do {
+//        let realm = try Realm()
+//        return realm.objects(RealmFriends.self).map{$0}
+//    } catch {
+//        print(error)
+//        return [RealmFriends]()
+//    }
+//}

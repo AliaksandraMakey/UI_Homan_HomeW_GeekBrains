@@ -2,35 +2,29 @@
 
 import UIKit
 
-
-class TwoPhotosTextTableCellXib: UITableViewCell {
+class TextNewsTableCellXib: UITableViewCell {
     
     @IBOutlet weak var avatarPhotoSubview: UIView!
     @IBOutlet weak var avatarPhoto: UIImageView!
-    @IBOutlet weak var commentView: LikeAndCommentView!
-    @IBOutlet weak var nameUserOrGroup: UILabel!
-    @IBOutlet weak var photoInPostOne: UIImageView!
-    @IBOutlet weak var photoInPostTwo: UIImageView!
+    @IBOutlet weak var commentView: UIView!
+    @IBOutlet weak var nameUserOrGroup: UILabel?
+    
     @IBOutlet weak var postText: UITextView!
     
-    static let identifier = "TwoPhotosTextTableCellXib"
+    static let identifier = "TextNewsTableCellXib"
     
     static func nib() -> UINib {
-        return UINib(nibName: "TwoPhotosTextTableCellXib", bundle: nil)
+        return UINib(nibName: "TextNewsTableCellXib", bundle: nil)
     }
-    
+
     func configure(news: NewsPost) {
         avatarPhoto.image = news.avatarImage
         postText?.text = news.textPost
         nameUserOrGroup?.text = news.namePersonOrGroupId
-
-        photoInPostOne.image = news.photosImage[0]
-        photoInPostTwo.image = news.photosImage[1]
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         cornerUIView(photo: avatarPhoto, photoSubview: avatarPhotoSubview)
     }
     

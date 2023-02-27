@@ -1,43 +1,34 @@
-//
-//  NewsSwrvice.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 10.11.22.
-//
+
 
 import Foundation
 import WebKit
 import RealmSwift
 import Realm
 
+
 let newsUrl = "https://api.vk.com/method/newsfeed.get"
 let newsSettings = ["access_token": Session.instance.token,
                     "filters": "post",
-                    "count": "10",
+                    "count": "30",
                     "v": "5.131"]
 
+
 /// MARK: URLRequest news
-
-
-public func newsGetRequests(complitionHandler: @escaping ([NewsPost]) -> Void) {
-    DispatchQueue.global().async {
-        guard let url = NetworkManager.getRequest(url: newsUrl, settings: newsSettings) else {return }
-        let (data, _, _) = URLSession.shared.syncRequest(with: url)
+public func newsGetRequests(completion: @escaping ([NewsPost]) -> Void) {
+    var parsedItems = [NewsItem]()
+    var parsedProfiles = [NewsProfiles]()
+    var parsedGroups = [NewsGroups]()
+    
+    guard let url = NetworkManager.getRequest(url: newsUrl, settings: newsSettings) else {return}
+    
+    URLSession.shared.dataTask(with: url) { data, response, error in
+        guard let data = data,
+              let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any],
+              let response = (json["response"] as? [String: Any]) else {return}
         
-        var parsedItems = [NewsItem]()
-        var parsedProfiles = [NewsProfiles]()
-        var parsedGroups = [NewsGroups]()
-        
-        let json = (try? JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed)
-                    as? [String: Any]) ?? [:]
-        let response = (json["response"] as? [String: Any]) ?? [:]
-        let itemsJson = response["items"]
-        let profilesJson = response["profiles"]
-        let groupsJson = response["groups"]
-        
-        let itemsData = (try? JSONSerialization.data(withJSONObject: itemsJson as Any, options: .fragmentsAllowed)) ?? Data()
-        let profilesData = (try? JSONSerialization.data(withJSONObject: profilesJson as Any, options: .fragmentsAllowed)) ?? Data()
-        let groupsData = (try? JSONSerialization.data(withJSONObject: groupsJson as Any, options: .fragmentsAllowed)) ?? Data()
+        let itemsData = (try? JSONSerialization.data(withJSONObject: (response["items"]) as Any, options: .fragmentsAllowed)) ?? Data()
+        let profilesData = (try? JSONSerialization.data(withJSONObject: (response["profiles"]) as Any, options: .fragmentsAllowed)) ?? Data()
+        let groupsData = (try? JSONSerialization.data(withJSONObject:  (response["groups"]) as Any, options: .fragmentsAllowed)) ?? Data()
         
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
@@ -63,35 +54,50 @@ public func newsGetRequests(complitionHandler: @escaping ([NewsPost]) -> Void) {
         
         dispatchGroup.notify(queue: .global()) {
             let newsPostItems = mapItemsToNewsPost(itemsNews: parsedItems, profilesNews: parsedProfiles, groupsNews: parsedGroups)
-            complitionHandler(newsPostItems)
+            completion(newsPostItems)
         }
-    }
+    }.resume()
 }
 
-public func mapItemsToNewsPost(itemsNews: [NewsItem], profilesNews: [NewsProfiles], groupsNews: [NewsGroups]) -> [NewsPost]{
-    
-    let newsPost = itemsNews.map {  item in
-        var news = NewsPost()
-        if item.sourceId < 0 {
-//            var groupsNewsWithPositiveId = groupsNews.
-            if let group = groupsNews.first(where: {$0.id == (-item.sourceId)}){
-                news.namePersonOrGroupId = group.name ?? "No name"
-                //                news.photoTitlePersonOrGroup = group.photo100
-            }
-        } else {
-                if let profile = profilesNews.first(where: {$0.id == item.sourceId}){
-//                     let name = (profile.firstName ?? "No name") + (profile.lastName ?? "No name")
-                    news.namePersonOrGroupId = (profile.firstName ?? "No name")
-//                news.photoTitlePersonOrGroup = profile.photo100
+
+public func newsAvatarGetRequests(news: [NewsPost], completion: @escaping ([NewsPost]) -> Void) {
+    for item in news {
+        UIImage.loadFrom(stringURL: item.avatarURL) { image in
+            item.avatarImage = image ?? UIImage()
+        }
+    }
+    for item in news {
+        for photo in item.photosURL {
+            UIImage.loadFrom(stringURL: photo) { image in
+                item.photosImage.append(image)
             }
         }
-        news.idPost = item.sourceId
-        news.postType = item.postType ?? ""
-        news.textPost = item.text ?? ""
+    }
+    completion(news)
+}
+
+func mapItemsToNewsPost(itemsNews: [NewsItem], profilesNews: [NewsProfiles], groupsNews: [NewsGroups]) -> [NewsPost]{
+    let newsPost = itemsNews.map {  item in
+        let news = NewsPost()
         
+        if item.sourceID < 0 {
+            let group = groupsNews.first(where: {$0.id == (-item.ownerID)})
+            news.namePersonOrGroupId = group?.name ?? ""
+            news.avatarURL = group?.avatarURL ?? ""
+        } else {
+            let profile = profilesNews.first(where: {$0.id == item.sourceID})
+            news.namePersonOrGroupId = ((profile?.firstName ?? "") + (profile?.lastName ?? ""))
+            news.avatarURL = profile?.avatarURL ?? ""
+        }
+        news.idPost = item.sourceID
+        news.textPost = item.text ?? ""
+        if item.photosURL != nil {
+            for photo in item.photosURL! {
+                news.photosURL.append(photo)
+            }
+        }
         return news
     }
-
     return newsPost
 }
 

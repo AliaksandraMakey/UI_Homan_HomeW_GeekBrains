@@ -2,55 +2,51 @@
 import UIKit
 import RealmSwift
 
+//FIXME: Use kod stale
+//FIXME: Correct extension GalleryViewController
+
 class GalleryViewController: UIViewController {
+    //MARK: IBOutlet
     @IBOutlet weak var galleryCollectionView: UICollectionView!
+    
     var friend = Friend()
     var gateway = PhotoGateway()
     var fullScreenView: UIView?
-    
-    //MARK: func viewDidLoad
+
+    //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         fullPhotosArray()
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
-        galleryCollectionView.register(UINib(nibName: "GalleryCollectionCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifierGalleryCollectionCell)
+        galleryCollectionView.register(UINib(nibName: "GalleryCollectionCell", bundle: nil), forCellWithReuseIdentifier: GalleryCollectionCell.identifier)
     }
-    /// func getPhoto
+    /// fullPhotosArray
     func fullPhotosArray() {
         let images = gateway.getPhotos(ownerId: friend.id)
         self.friend.photoAlbum += images
     }
 }
-
 //MARK: Extension GalleryViewController
 extension GalleryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    /// numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return friend.photoAlbum.count
     }
+    /// cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierGalleryCollectionCell, for: indexPath) as? GalleryCollectionCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionCell.identifier, for: indexPath) as? GalleryCollectionCell else { return UICollectionViewCell() }
         cell.configure(image: self.friend.photoAlbum[indexPath.item])
         return cell
     }
+    /// didSelectItemAt
     func  collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         showView(image: self.friend.photoAlbum[indexPath.item])
     }
 }
-
-//MARK: Extension UICollectionViewDelegateFlowLayout
-extension GalleryViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewWidth = collectionView.bounds.width
-        let whiteSpace = CGFloat(1)
-        let cellWightHeight = collectionViewWidth / 2 - whiteSpace
-        // можно было использовать такой синтаксис: CGSize(width: collectionViewWidth / 3 - whiteSpace, height: collectionViewWidth / 3 - whiteSpace)
-        return CGSize(width: cellWightHeight, height: cellWightHeight)
-    }
-}
-
-//MARK: Extension GalleryViewController
+//MARK: Show ImageView
 extension GalleryViewController {
+    
     func showView(image: UIImage) {
         // добавим проверку. Если fullScreenView = nil - инициализируем его
         if fullScreenView == nil {
@@ -107,5 +103,13 @@ extension GalleryViewController {
         // если fullScreenView используем removeFromSuperview
         guard let fullScreenView = self.fullScreenView else {return}
         fullScreenView.removeFromSuperview()
+    }
+}
+//MARK: Extension UICollectionViewDelegateFlowLayout
+extension GalleryViewController: UICollectionViewDelegateFlowLayout {
+    /// collectionViewLayout CGSize
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWightHeight = (collectionView.bounds.width) / 2 - CGFloat(1)
+        return CGSize(width: cellWightHeight, height: cellWightHeight)
     }
 }

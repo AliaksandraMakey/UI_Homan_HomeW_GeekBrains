@@ -1,15 +1,13 @@
-//
-//  BigPhotoViewXib.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 24.06.22.
-//
 
 import UIKit
 //@IBDesignable
-class BigPhotoViewXib: UIView {
 
-    @IBInspectable var inactivIndicatorColor: UIColor = UIColor.lightGray
+//FIXME: Use kod stale
+//FIXME: Swipe left / right
+
+class BigPhotoViewXib: UIView {
+    //MARK: @IBInspectable 
+    @IBInspectable var inactivIndicatorColor: UIColor = UIColor.gray
     @IBInspectable var activeIndicatorColor: UIColor = UIColor.black
     
     private var view: UIView?

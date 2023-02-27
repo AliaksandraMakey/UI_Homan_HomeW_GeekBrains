@@ -1,13 +1,8 @@
-//
-//  TokenRealm.swift
-//  UI_Homan_Homework
-//
-//  Created by aaa on 02.09.22.
-//
 
 import Foundation
 import RealmSwift
 
+//MARK: TokenRealm
 class TokenRealm: Object {
     
     @Persisted(primaryKey: true)
