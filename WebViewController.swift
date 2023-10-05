@@ -23,18 +23,20 @@ class WebViewController: UIViewController {
         /// urlComponents
         var urlComponents = URLComponents(string: "https://oauth.vk.com/authorize")
         urlComponents?.queryItems = [
-            URLQueryItem(name: "client_id", value: "51472700"),
+            URLQueryItem(name: "client_id", value: "51623977"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "scope", value: "270342"),
             URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.68")
+            URLQueryItem(name: "v", value: "5.131")
         ]
         
         guard let url = urlComponents?.url else {return}
         /// request
-        let request = URLRequest(url: url)
-        webView.load(request)
+        DispatchQueue.main.async {
+            let request = URLRequest(url: url)
+            self.webView.load(request)
+        }
     }
     /// tapFunction
     @objc func  tapFunction() {
@@ -54,7 +56,8 @@ extension WebViewController: WKNavigationDelegate {
         let params = fragment
             .components(separatedBy: "&")
             .map { $0.components(separatedBy: "=") }
-            .reduce([ String: String ](), {
+            .reduce([ String: String ](),
+                    {
                 partialResult, param in
                        var dictionary = partialResult
                        let key = param[0]
